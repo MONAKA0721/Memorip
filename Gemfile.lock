@@ -42,6 +42,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (9.5.0)
       execjs
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bootstrap (4.3.1)
       autoprefixer-rails (>= 9.1.0)
@@ -154,6 +155,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     sass (3.7.3)
@@ -213,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.12)
   bootstrap (~> 4.3.1)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
@@ -227,6 +230,7 @@ DEPENDENCIES
   puma (= 3.9.1)
   rails (= 5.1.6)
   rails-controller-testing (= 1.0.2)
+  rb-readline
   sass-rails (= 5.0.6)
   spring (= 2.0.2)
   spring-watcher-listen (= 2.0.1)
