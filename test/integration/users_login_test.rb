@@ -4,6 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @non_activated_user = users(:non_activated)
   end
 
   test "login with invalid information" do
@@ -50,5 +51,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # クッキーを削除してログイン
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
+  end
+
+  test "should not allow the not activated attribute" do
+    log_in_as (@non_activated_user)                                             # 非有効化ユーザーでログイン
+    assert_not @non_activated_user.activated?                                   # 有効化でないことを検証
+    get users_path                                                              # /usersを取得
+    assert_select "a[href=?]", user_path(@non_activated_user), count: 0         # 非有効化ユーザーが表示されていないことを確認
+    get user_path(@non_activated_user)                                          # 非有効化ユーザーidのページを取得
+    assert_redirected_to root_url                                               # ルートurlにリダイレクトされればtrue
   end
 end
