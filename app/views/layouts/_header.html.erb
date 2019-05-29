@@ -1,10 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
+
     <%= link_to "Tristagram", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Help",   help_path %></li>
+      <ul class="nav navbar-nav mr-auto ">
+        <li class="nav-item"><%= link_to "Home",   root_path , class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Help",   help_path , class: "nav-link" %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
@@ -21,7 +22,7 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Log in", login_path , class: "nav-link" %></li>
         <% end %>
       </ul>
     </nav>
