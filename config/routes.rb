@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
+
   get 'planning/top'
 
   get 'sessions/new'
 
-  root 'static_pages#home' 
+  root 'static_pages#home'
 
   get  '/help', to: 'static_pages#help'
   get  '/about', to: 'static_pages#about'
