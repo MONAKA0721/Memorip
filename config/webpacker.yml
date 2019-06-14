@@ -1,17 +1,17 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: app/javascript
-  source_entry_path: packs
+  source_path: app/javascript # ソースのルートパス
+  source_entry_path: packs # エントリーポイントのルートパス
   public_root_path: public
-  public_output_path: packs
+  public_output_path: packs # コンパイルした結果を配置する/public配下のパス
   cache_path: tmp/cache/webpacker
   check_yarn_integrity: false
   webpack_compile_output: false
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
-  resolved_paths: []
+  resolved_paths: [] #WebpackでAssetを参照する場合のパス
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
