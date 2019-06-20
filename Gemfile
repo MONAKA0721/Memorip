@@ -21,6 +21,7 @@ gem 'react-rails'
 gem 'webpacker'
 gem "actionview", ">= 5.1.6.2"
 gem 'will_paginate-bootstrap4'
+gem 'jp_prefecture'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
