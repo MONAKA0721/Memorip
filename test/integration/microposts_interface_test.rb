@@ -9,7 +9,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   test "micropost interface" do
     log_in_as(@user)
     get root_path
-    assert_select 'div.pagination'
+    assert_select 'ul.pagination'
     assert_select 'input[type=file]'
     # 無効な送信
     assert_no_difference 'Micropost.count' do
@@ -18,11 +18,14 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     # 有効な送信
     content = "This micropost really ties the room together"
+    prefecture_code = 29
     picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: { micropost: { content: content, picture:picture } }
+      post microposts_path, params: { micropost: { content: content,
+        picture:picture, prefecture_code: prefecture_code} }
     end
     assert assigns(:micropost).picture?
+    assert_equal prefecture_code, assigns(:micropost).prefecture_code
     assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body

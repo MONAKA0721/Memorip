@@ -1,4 +1,6 @@
 class Micropost < ApplicationRecord
+  include JpPrefecture
+  jp_prefecture :prefecture_code
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
