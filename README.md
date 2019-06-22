@@ -11,6 +11,8 @@ Tristagram は旅行者が旅行をより楽しく、楽に企画できること
 * しおりの作成
   * 文字が入れた画像が作成できます
   
+## 使用言語
+Rails, React.js, HTML&CSS
 <!-- Things you may want to cover:
 
 * Ruby version
