@@ -11,6 +11,11 @@
     </section>
   </aside>
   <div class="col-md-8">
+      <%= form_for(@micropost) do |f| %>
+        <div class="prefecture">
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+        </div>
+      <% end %>
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
