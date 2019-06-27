@@ -11,10 +11,12 @@
     </section>
   </aside>
   <div class="col-md-8">
-      <div class="prefecture" style="width:100px">
-        <%= collection_select :prefecture_code, @micropost,JpPrefecture::Prefecture.all, :code, :name %>
-      </div>
-      <%= link_to "検索", search_path, class:"btn btn-primary rounded-pill", role:"button" %>
+      <%= form_with(url: search_path, method: :get, local:true ) do |f| %>
+        <div class="prefecture" style="width:100px">
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+        </div>
+        <%= f.submit '検索' %>
+      <% end %>
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>

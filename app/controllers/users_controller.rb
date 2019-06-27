@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   def search
     if logged_in?
-      @feed_items = Micropost.where(prefecture_code: 1).paginate(page: params[:page])
+      @feed_items = Micropost.where(prefecture_code: params[:prefecture_code]).paginate(page: params[:page])
     end
   end
 
