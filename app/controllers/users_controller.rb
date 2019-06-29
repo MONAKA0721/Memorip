@@ -62,7 +62,13 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
-  
+
+  def search
+    if logged_in?
+      @feed_items = Micropost.where(prefecture_code: params[:prefecture_code]).paginate(page: params[:page])
+    end
+  end
+
   private
 
     def user_params
