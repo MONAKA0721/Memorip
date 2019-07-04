@@ -85,3 +85,21 @@ function codeAddress(){
     }
   });
 }
+
+function addMarker(){
+
+  let inputAddress = document.getElementById('markerAddress').value;
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
