@@ -244,6 +244,10 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -363,6 +367,8 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    request_store (1.4.1)
+      rack (>= 1.4)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -448,6 +454,7 @@ DEPENDENCIES
   dotenv-rails
   faker (= 1.7.3)
   fog (= 1.42)
+  gon
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)
