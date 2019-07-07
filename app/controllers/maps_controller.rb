@@ -1,11 +1,14 @@
 class MapsController < ApplicationController
   def index
-    gon.Data =[
+    if params[:markerData]
+      gon.Data = params[:markerData]
+    else
+      gon.Data =[
            {name: 'TAM 東京',
            lat: 35.6954806,
-            lng: 139.76325010000005,
+            lng: 139.76325010000005
           }
-    ]
+        ]
      # }, {
      #        name: '小川町駅',
      #     lat: 35.6951212,
@@ -27,5 +30,6 @@ class MapsController < ApplicationController
      #       lat: 35.696932,
      #     lng: 139.76543200000003
      # }
+    end
   end
 end

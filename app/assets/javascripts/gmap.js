@@ -13,6 +13,7 @@ function initMap(){
   // geocoderを初期化
 
   console.log(gon.Data);
+  console.log(markerData[0]);
   console.log(markerData[0]['lat']);
   geocoder = new google.maps.Geocoder();
 
