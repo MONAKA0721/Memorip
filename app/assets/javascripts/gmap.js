@@ -8,7 +8,7 @@ let geocoder
 var marker = [];
 var infoWindow = [];
 var markerData = gon.Data;
-
+var markerName = gon.markerName
 function initMap(){
   // geocoderを初期化
 
@@ -21,6 +21,19 @@ function initMap(){
   center: {lat: 35.6954806, lng: 139.76325010000005},
   zoom: 15
   });
+  if(markerName){
+    geocoder.geocode( { 'address': markerName }, function(results, status) {
+      if (status == 'OK'){
+  　　　 // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
 
   for (var i = 0; i < markerData.length; i++) {
         markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成

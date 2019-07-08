@@ -1,5 +1,8 @@
 class MapsController < ApplicationController
   def index
+    if params[:markerName]
+      gon.markerName = params[:markerName]
+    end
     if params[:markerData]
       gon.Data = params[:markerData]
     else
