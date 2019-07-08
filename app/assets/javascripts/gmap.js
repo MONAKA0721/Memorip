@@ -3,8 +3,8 @@ mapを関数の外で定義(codeAddressでも使うため)
 geocoderを用意
 */
 
-let map
-let geocoder
+var map
+var geocoder
 var marker = [];
 var infoWindow = [];
 var markerData = gon.Data;
