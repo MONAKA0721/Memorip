@@ -13,6 +13,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'bootstrap', '~> 4.3.1'
 gem 'rb-readline'
 gem 'faker',          '1.7.3'
+gem 'dotenv-rails'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave',             '1.2.2'
@@ -22,6 +23,7 @@ gem 'webpacker'
 gem "actionview", ">= 5.1.6.2"
 gem 'will_paginate-bootstrap4'
 gem 'jp_prefecture'
+gem 'gon'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
