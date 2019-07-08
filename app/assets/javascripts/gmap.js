@@ -58,7 +58,7 @@ function markerEvent(i) {
 
 function codeAddress(){
   // 入力を取得
-  let inputAddress = document.getElementById('address').value;
+  var inputAddress = document.getElementById('address').value;
 
   // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
@@ -79,7 +79,7 @@ function codeAddress(){
 
 function addMarker(){
 
-  let inputAddress = document.getElementById('markerAddress').value;
+  var inputAddress = document.getElementById('markerAddress').value;
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
     if (status == 'OK') {
 　　　　　　　　　　　　// map.setCenterで地図が移動
