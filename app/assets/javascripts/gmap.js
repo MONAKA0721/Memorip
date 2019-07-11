@@ -8,13 +8,14 @@ var geocoder
 var marker = [];
 var infoWindow = [];
 var markerData = gon.Data;
-var markerName = gon.markerName
+var markerName = gon.markerName;
 function initMap(){
   // geocoderを初期化
 
   console.log(gon.Data);
   console.log(markerData[0]);
   console.log(markerData[0]['lat']);
+  console.log(markerName[0]);
   geocoder = new google.maps.Geocoder();
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -22,17 +23,19 @@ function initMap(){
   zoom: 15
   });
   if(markerName){
-    geocoder.geocode( { 'address': markerName }, function(results, status) {
-      if (status == 'OK'){
-  　　　 // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
+    for(var i = 0 ; i < markerName.length ; i++){
+      geocoder.geocode( { 'address': markerName[i] }, function(results, status) {
+        if (status == 'OK'){
+    　　　 // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+          new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
   }
 
   for (var i = 0; i < markerData.length; i++) {
