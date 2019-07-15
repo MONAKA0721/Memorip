@@ -14,13 +14,13 @@ function initMap(){
 
   console.log(gon.Data);
   console.log(markerData[0]);
-  console.log(markerData[0]['lat']);
   geocoder = new google.maps.Geocoder();
 
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 35.6954806, lng: 139.76325010000005},
   zoom: 15
   });
+  console.log(markerData[0]['lat']);
   if(markerName){
     geocoder.geocode( { 'address': markerName }, function(results, status) {
       if (status == 'OK'){
