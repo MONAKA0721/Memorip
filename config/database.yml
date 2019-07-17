@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  url: <%= ENV["HEROKU_POSTGRESQL_ONYX_URL"] %>
