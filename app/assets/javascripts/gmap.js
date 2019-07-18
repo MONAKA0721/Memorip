@@ -15,7 +15,6 @@ function initMap(){
   console.log(gon.Data);
   console.log(markerData[0]);
   console.log(markerData[0]['lat']);
-  console.log(markerName[0]);
   geocoder = new google.maps.Geocoder();
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -92,6 +91,7 @@ function addMarker(){
           map: map,
           position: results[0].geometry.location
       });
+      document.getElementById('markerList').innerHTML = inputAddress ;
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
