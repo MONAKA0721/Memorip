@@ -289,7 +289,7 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
-    mini_magick (4.7.0)
+    mini_magick (4.9.5)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.10.3)
@@ -461,7 +461,7 @@ DEPENDENCIES
   jp_prefecture
   jquery-rails
   listen (= 3.1.5)
-  mini_magick (= 4.7.0)
+  mini_magick (>= 4.9.4)
   minitest (= 5.10.3)
   minitest-reporters (= 1.1.14)
   pg (= 0.20.0)
@@ -482,4 +482,4 @@ DEPENDENCIES
   will_paginate-bootstrap4
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
