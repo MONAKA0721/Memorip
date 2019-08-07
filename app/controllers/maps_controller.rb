@@ -34,5 +34,7 @@ class MapsController < ApplicationController
      #     lng: 139.76543200000003
      # }
     end
+
+    @plan = Plan.first
   end
 end
