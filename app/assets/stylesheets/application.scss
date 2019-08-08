@@ -46,3 +46,13 @@
 #markerAddress{
   margin-top: 20px;
 }
+#mapContainer{
+  display:grid;
+  grid-template-columns: 300px 1fr;
+}
+#planList{
+  border-right: solid thin gray;
+}
+#item{
+  margin-left: 20px;
+}
