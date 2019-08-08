@@ -7,8 +7,6 @@ var map
 var geocoder
 var marker = [];
 var infoWindow = [];
-var markerData = gon.Data;
-var markerName = gon.markerName
 function initMap(){
   // geocoderを初期化
 
