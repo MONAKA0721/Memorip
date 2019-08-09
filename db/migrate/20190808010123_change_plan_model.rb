@@ -1,0 +1,44 @@
+class ChangePlanModel < ActiveRecord::Migration[5.1]
+  def change
+    rename_column :plans, :location, :destination1
+    add_column :plans, :destination1time, :time
+    add_column :plans, :destination2, :string
+    add_column :plans, :destination2time, :time
+    add_column :plans, :destination3, :string
+    add_column :plans, :destination3time, :time
+    add_column :plans, :destination4, :string
+    add_column :plans, :destination4time, :time
+    add_column :plans, :destination5, :string
+    add_column :plans, :destination5time, :time
+    add_column :plans, :destination6, :string
+    add_column :plans, :destination6time, :time
+    add_column :plans, :destination7, :string
+    add_column :plans, :destination7time, :time
+    add_column :plans, :destination8, :string
+    add_column :plans, :destination8time, :time
+    add_column :plans, :destination9, :string
+    add_column :plans, :destination9time, :time
+    add_column :plans, :destination10, :string
+    add_column :plans, :destination10time, :time
+    add_column :plans, :destination11, :string
+    add_column :plans, :destination11time, :time
+    add_column :plans, :destination12, :string
+    add_column :plans, :destination12time, :time
+    add_column :plans, :destination13, :string
+    add_column :plans, :destination13time, :time
+    add_column :plans, :destination14, :string
+    add_column :plans, :destination14time, :time
+    add_column :plans, :destination15, :string
+    add_column :plans, :destination15time, :time
+    add_column :plans, :destination16, :string
+    add_column :plans, :destination16time, :time
+    add_column :plans, :destination17, :string
+    add_column :plans, :destination17time, :time
+    add_column :plans, :destination18, :string
+    add_column :plans, :destination18time, :time
+    add_column :plans, :destination19, :string
+    add_column :plans, :destination19time, :time
+    add_column :plans, :destination20, :string
+    add_column :plans, :destination20time, :time
+  end
+end
