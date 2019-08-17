@@ -1,6 +1,11 @@
 class PlansController < ApplicationController
   def update
     @plan = Plan.first
-    @plan.update_attributes(destination2: params[:plan][:destination2])
+    @plan.update_attributes(plan_params)
   end
+
+  private
+    def plan_params
+      params.require(:plan).permit(:destination2)
+    end
 end
