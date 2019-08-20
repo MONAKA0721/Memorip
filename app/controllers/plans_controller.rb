@@ -7,6 +7,6 @@ class PlansController < ApplicationController
 
   private
     def plan_params
-      params.require(:plan).permit(:destination2)
+      params.require(:plan).permit(:destination2, :destination5)
     end
 end

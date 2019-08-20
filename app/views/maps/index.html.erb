@@ -8,13 +8,40 @@
     </div>
     <div id='planProcess'>
     <h4>行程</h4>
-    <ol class='planLocation'>
+    <ol class='planLocation' style="width:250px">
+      <%= form_for(@plan, url:{controller:'plans', action:'update'}) do |f| %>
       <li>
-        <%= @plan.destination1 %>
+        <%= f.text_field :destination1 %>
       </li>
       <li>
-        <%= @plan.destination2 %>
+        <%= f.text_field :destination2 %>
       </li>
+      <li>
+        <%= f.text_field :destination3 %>
+      </li>
+      <li>
+        <%= f.text_field :destination4 %>
+      </li>
+      <li>
+        <%= f.text_field :destination5 %>
+      </li>
+      <li>
+        <%= f.text_field :destination6 %>
+      </li>
+      <li>
+        <%= f.text_field :destination7 %>
+      </li>
+      <li>
+        <%= f.text_field :destination8 %>
+      </li>
+      <li>
+        <%= f.text_field :destination9 %>
+      </li>
+      <li>
+        <%= f.text_field :destination10 %>
+      </li>
+      <%= f.submit %>
+      <% end %>
     </ol>
   </div>
   </div>
@@ -30,10 +57,6 @@
     <input id="markerAddress" type="textbox" value="東京駅">
     <input type="button" value="追加" onclick="addMarker()">
 
-    <%= form_for(@plan, url:{controller:'plans', action:'update'}) do |f| %>
-      <%= f.text_field :destination2 %>
-      <%= f.submit %>
-    <% end %>
     <%= react_component('mapLink') %>
 
     <div id='markerList'></div>
