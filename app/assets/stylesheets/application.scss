@@ -79,4 +79,17 @@
  .slideshow{
    width : 100%; /* スライドショー幅（SP）*/
  }
+
+#mapContainer{
+  display:grid;
+  grid-template-columns: 300px 1fr;
+}
+#planList{
+  border-right: solid thin gray;
+}
+#item{
+  margin-left: 20px;
+}
+#planTitle{
+  margin-bottom : 20px;
 }
