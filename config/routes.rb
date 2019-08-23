@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'plans/update'
+
   get 'maps/index', to: 'maps#index'
 
   get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
@@ -28,6 +30,5 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :maps, only: [:index]
-  
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  resources :plans
 end
