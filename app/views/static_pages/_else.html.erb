@@ -5,24 +5,26 @@
   <li class="showSlide"><%= image_tag('Okinawa.jpg') %></li>
 </ul>
 <div class='container'>
-  <div class='row'>
-    <div class='col-6' >
-      <div class="card center-block linkBox postBox mx-auto" style="width: 20rem;">
-        <!-- <img class="card-img-top" src="book_open_tate.png" alt="Card image cap"> -->
-        <div class="card-body">
-          <h4 class="card-title text-center">旅行記録の投稿</h4>
-          <p class="card-text text-center">こちらから旅行の投稿ができます</p>
-          <%= link_to "", login_path, class:"center-block" %>
+  <div class='rowHome'>
+    <div class='row'>
+      <div class='col-6' >
+        <div class="card center-block linkBox postBox mx-auto" style="width: 20rem;">
+          <!-- <img class="card-img-top" src="book_open_tate.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h4 class="card-title text-center">旅行記録の投稿</h4>
+            <p class="card-text text-center">こちらから旅行の投稿ができます</p>
+            <%= link_to "", login_path, class:"center-block" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class='col-6'>
-      <div class="card center-block linkBox planningBox mx-auto" style="width: 20rem;">
-        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-        <div class="card-body">
-          <h4 class="card-title text-center">旅行の企画</h4>
-          <p class="card-text text-center">こちらから旅行の企画を行えます</p>
-          <a href="/planning/top" class="center-block"></a>
+      <div class='col-6'>
+        <div class="card center-block linkBox planningBox mx-auto" style="width: 20rem;">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+          <div class="card-body">
+            <h4 class="card-title text-center">旅行の企画</h4>
+            <p class="card-text text-center">こちらから旅行の企画を行えます</p>
+            <a href="/planning/top" class="center-block"></a>
+          </div>
         </div>
       </div>
     </div>
