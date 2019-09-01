@@ -24,18 +24,48 @@
   display: block;
   margin-top: 2rem;
   position: relative;
-  top: 420px;
+  top: 630px;
 }
 
 #header_layout {
   background-color: white;
 }
 
+#planDescript_title{
+  position: relative;
+  top: 450px;
+  background-image: url("plan.png");
+  background-size: 44px 44px;
+  background-repeat: no-repeat;
+  padding: 14px 0px 0px 55px;
+}
 
+#tweetDescript_title{
+  position: relative;
+  top: 450px;
+  background-image: url("tweet.png");
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  padding: 14px 0px 0px 55px;
+}
+
+#planDescript{
+  position: relative;
+  top: 450px;
+  padding-top: 12px;
+  padding-left: 10px;
+}
+
+#tweetDescript{
+  position: relative;
+  top: 450px;
+  padding-top: 12px;
+  padding-left: 10px;
+}
 /* トップページ */
 #description{
   position: relative;
-  top:420px;
+  top:440px;
   margin-bottom: 30px;
 }
 

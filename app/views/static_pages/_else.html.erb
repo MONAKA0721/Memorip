@@ -6,26 +6,34 @@
 </ul>
 
 <h3 class='center' id='description'>このサイトでは旅行記録の共有、旅行の企画が簡単にできます！</h3>
+    <div class="row">
+      <div class="col-6">
+        <h4 id="planDescript_title">直感的に旅行を企画！</h4>
+        <p id="planDescript">TRISTAGRAMでは地図を使って直感的に旅行の企画が出来ます。また、旅行を企画していくとその情報を元に旅のしおりが作成されます。しおりのデータは保存したり印刷する事ができるので旅中に役に立つ事間違いなしです！</p>
+      </div>
+      <div class="col-6">
+        <h4 id="tweetDescript_title">気軽に旅行の記録をシェア！</h4>
+        <p id="tweetDescript">TRISTAGRAMのアカウントを登録すると自分が企画した旅行プランを投稿する事が出来ます。また、他の人の投稿も見れるので自分の旅行の行き先の目星をつけたり内容を参考にしたり出来ます！</p>
+      </div>
+    </div>
 <div class='container'>
   <div class='rowHome'>
     <div class='row'>
       <div class='col-6' >
-        <div class="card center-block linkBox postBox mx-auto" style="width: 20rem;">
-          <!-- <img class="card-img-top" src="book_open_tate.png" alt="Card image cap"> -->
+        <div class="card center-block linkBox planningBox mx-auto" style="width: 20rem;">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div class="card-body">
-            <h4 class="card-title text-center">旅行記録の投稿</h4>
-            <p class="card-text text-center">こちらから旅行の投稿ができます</p>
-            <%= link_to "", login_path, class:"center-block" %>
+            <h4 class="card-title text-center">旅行プランを立てる</h4>
+            <a href="/planning/top" class="center-block"></a>
           </div>
         </div>
       </div>
       <div class='col-6'>
-        <div class="card center-block linkBox planningBox mx-auto" style="width: 20rem;">
-          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card center-block linkBox postBox mx-auto" style="width: 20rem;">
+          <!-- <img class="card-img-top" src="book_open_tate.png" alt="Card image cap"> -->
           <div class="card-body">
-            <h4 class="card-title text-center">旅行の企画</h4>
-            <p class="card-text text-center">こちらから旅行の企画を行えます</p>
-            <a href="/planning/top" class="center-block"></a>
+            <h4 class="card-title text-center">旅行プランを投稿する</h4>
+            <%= link_to "", login_path, class:"center-block" %>
           </div>
         </div>
       </div>
