@@ -24,10 +24,21 @@
   display: block;
   margin-top: 2rem;
   position: relative;
-  top: 400px;
+  top: 420px;
 }
 
+#header_layout {
+  background-color: white;
+}
+
+
 /* トップページ */
+#description{
+  position: relative;
+  top:420px;
+  margin-bottom: 30px;
+}
+
 .createButton{
   width:50px;
   margin: 0 auto;
@@ -70,7 +81,7 @@
 
 .slideshow > li > img {
  width : 100%;
- height: 380px;
+ height: 400px;
  object-fit: cover;
 }
 
