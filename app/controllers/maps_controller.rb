@@ -15,6 +15,17 @@ class MapsController < ApplicationController
     end
 
     @plan = Plan.first
-    gon.planData = [@plan.destination1, @plan.destination2]
+    gon.planData = [
+      @plan.destination1,
+      @plan.destination2,
+      @plan.destination3,
+      @plan.destination4,
+      @plan.destination5,
+      @plan.destination6,
+      @plan.destination7,
+      @plan.destination8,
+      @plan.destination9,
+      @plan.destination10
+      ]
   end
 end
