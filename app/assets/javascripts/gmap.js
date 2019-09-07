@@ -25,8 +25,6 @@ function initMap(){
           if (status == 'OK'){
             console.log(results[0])
             planDestinationPosition.push(results[0])
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
           }
         });
     }
@@ -62,8 +60,6 @@ function initMap(){
                 map: map,
                 position: results[0].geometry.location
             });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
           }
         });
     }
