@@ -14,8 +14,14 @@ var planDestinationPosition = [];
 function initMap(){
   // geocoderを初期化
   geocoder = new google.maps.Geocoder();
+  //console.log(planDestinationPosition);
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 35.6954806, lng: 139.76325010000005},
+  zoom: 15
+  });
   if(planData){
       for(var i = 0 ; i < planData.length ; i++){
+        console.log(planData[i])
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
             new google.maps.Marker({
@@ -27,13 +33,6 @@ function initMap(){
         });
     }
   }
-  //console.log(planDestinationPosition);
-
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.6954806, lng: 139.76325010000005},
-  zoom: 15
-  });
-  console.log(markerData[0]['lat']);
   if(markerName){
     for(var i = 0 ; i < markerName.length ; i++){
       geocoder.geocode( { 'address': markerName[i] }, function(results, status) {
