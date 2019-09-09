@@ -21,6 +21,7 @@ function initMap(){
   });
   if(planData){
       for(var i = 0 ; i < planData.length ; i++){
+        console.log(planData[i])
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
             new google.maps.Marker({
