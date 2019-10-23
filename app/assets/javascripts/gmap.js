@@ -11,13 +11,15 @@ var markerData = gon.Data;
 var markerName = gon.markerName;
 var planData = gon.planData;
 var planDestinationPosition = [];
+
+
 function initMap(){
   // geocoderを初期化
   geocoder = new google.maps.Geocoder();
   //console.log(planDestinationPosition);
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 35.6954806, lng: 139.76325010000005},
-  zoom: 15
+  zoom: 12
   });
   if(planData){
       for(var i = 0 ; i < planData.length ; i++){
@@ -80,7 +82,25 @@ function codeAddress(){
       map.setCenter(results[0].geometry.location);
 
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
+      // var marker = new google.maps.Marker({
+      //     map: map,
+      //     position: results[0].geometry.location
+      // });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function addMarker(){
+
+  var inputAddress = document.getElementById('markerAddress').value;
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
       });
@@ -88,27 +108,29 @@ function codeAddress(){
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
+
+  if(!document.getElementById('dest1').value){
+    document.getElementById('dest1').value = inputAddress;
+  } else if(!document.getElementById('dest2').value){
+    document.getElementById('dest2').value = inputAddress;
+  } else if(!document.getElementById('dest3').value){
+    document.getElementById('dest3').value = inputAddress;
+  } else if(!document.getElementById('dest4').value){
+    document.getElementById('dest4').value = inputAddress;
+  } else if(!document.getElementById('dest5').value){
+    document.getElementById('dest5').value = inputAddress;
+  } else if(!document.getElementById('dest6').value){
+    document.getElementById('dest6').value = inputAddress;
+  } else if(!document.getElementById('dest7').value){
+    document.getElementById('dest7').value = inputAddress;
+  } else if(!document.getElementById('dest8').value){
+    document.getElementById('dest8').value = inputAddress;
+  } else if(!document.getElementById('dest9').value){
+    document.getElementById('dest9').value = inputAddress;
+  } else {
+    document.getElementById('dest10').value = inputAddress;
+  }
 }
-
-// function addMarker(){
-//
-//   var inputAddress = document.getElementById('markerAddress').value;
-//   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-//     if (status == 'OK') {
-// 　　　　　　　　　　　　// map.setCenterで地図が移動
-//       map.setCenter(results[0].geometry.location);
-// 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-//       new google.maps.Marker({
-//           map: map,
-//           position: results[0].geometry.location
-//       });
-//       document.getElementById('markerList').innerHTML = inputAddress ;
-//     } else {
-//       alert('Geocode was not successful for the following reason: ' + status);
-//     }
-//   });
-// }
-
 
 window.onload = function(){
       initMap();
