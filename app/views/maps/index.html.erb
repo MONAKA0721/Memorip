@@ -9,38 +9,50 @@
     </div>
     <div id='planProcess'>
     <h4>行程</h4>
-    <ol class='planLocation' style="width:250px">
+    <ol class='planLocation' style="width:300px">
       <%= form_for(@plan, url:{controller:'plans', action:'update'}) do |f| %>
-      <li>
-        <%= f.text_field :destination1, {id: "dest1"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination2, {id: "dest2"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination3, {id: "dest3"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination4, {id: "dest4"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination5, {id: "dest5"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination6, {id: "dest6"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination7, {id: "dest7"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination8, {id: "dest8"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination9, {id: "dest9"} %>
-      </li>
-      <li>
-        <%= f.text_field :destination10, {id: "dest10"} %>
-      </li>
+      <div class='form-row'>
+        <li>
+          <%= f.time_field :destination1time, {id: "dest_time1", class: 'col-5'} %>
+          <%= f.text_field :destination1, {id: "dest1", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination2time, {id: "dest_time2", class: 'col-5'} %>
+          <%= f.text_field :destination2, {id: "dest2", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination3time, {id: "dest_time3", class: 'col-5'} %>
+          <%= f.text_field :destination3, {id: "dest3", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination4time, {id: "dest_time4", class: 'col-5'} %>
+          <%= f.text_field :destination4, {id: "dest4", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination5time, {id: "dest_time5", class: 'col-5'} %>
+          <%= f.text_field :destination5, {id: "dest5", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination6time, {id: "dest_time6", class: 'col-5'} %>
+          <%= f.text_field :destination6, {id: "dest6", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination7time, {id: "dest_time7", class: 'col-5'} %>
+          <%= f.text_field :destination7, {id: "dest7", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination8time, {id: "dest_time8", class: 'col-5'} %>
+          <%= f.text_field :destination8, {id: "dest8", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination9time, {id: "dest_time9", class: 'col-5'} %>
+          <%= f.text_field :destination9, {id: "dest9", class: "col-6"} %>
+        </li>
+        <li>
+          <%= f.time_field :destination10time, {id: "dest_time10", class: 'col-5'} %>
+          <%= f.text_field :destination10, {id: "dest10", class: "col-6"} %>
+        </li>
+      </div>
       <%= f.submit %>
       <% end %>
     </ol>
