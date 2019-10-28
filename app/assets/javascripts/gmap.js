@@ -6,7 +6,6 @@ geocoderを用意
 var map
 var geocoder
 var marker = [];
-var infoWindow = [];
 var markerData = gon.Data;
 var markerName = gon.markerName;
 var planData = gon.planData;
@@ -24,13 +23,21 @@ function initMap(){
   if(planData){
       for(var i = 0 ; i < planData.length ; i++){
         console.log(planData[i])
+
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
-            new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
             });
             //planDestinationPosition.push(results[0])
+            var infowindow = new google.maps.InfoWindow({
+              content: '<ul>'+ '<li>' + 'aaa' + '</li>' + '<li>' + results[0].formatted_address + '</li>' + '</ul>'
+            });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
           }
         });
     }
@@ -65,11 +72,11 @@ function initMap(){
   // }
 }
 
-function markerEvent(i) {
-    marker[i].addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
-  });
-}
+// function markerEvent(i) {
+//     marker[i].addListener('click', function() { // マーカーをクリックしたとき
+//       infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+//   });
+// }
 
 function codeAddress(){
   // 入力を取得
@@ -100,10 +107,19 @@ function addMarker(){
 　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      new google.maps.Marker({
+      var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
       });
+
+      var infowindow = new google.maps.InfoWindow({
+        content: '<ul>' + '<li>' + inputAddress + '</li>' + '<li>' + results[0].formatted_address + '</li>' + '</ul>'
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -130,6 +146,9 @@ function addMarker(){
   } else {
     document.getElementById('dest10').value = inputAddress;
   }
+
+  document.getElementById('markerAddress').value = '';
+
 }
 
 window.onload = function(){
