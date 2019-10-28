@@ -21,18 +21,20 @@ function initMap(){
   zoom: 12
   });
   if(planData){
-      for(var i = 0 ; i < planData.length ; i++){
+      for(let i = 0 ; i < planData.length ; i++){
         console.log(planData[i])
 
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
+
             var marker = new google.maps.Marker({
                 map: map,
-                position: results[0].geometry.location
+                position: results[0].geometry.location,
+                label: `${i + 1}`
             });
             //planDestinationPosition.push(results[0])
             var infowindow = new google.maps.InfoWindow({
-              content: '<ul>'+ '<li>' + 'aaa' + '</li>' + '<li>' + results[0].formatted_address + '</li>' + '</ul>'
+              content: '<ul>'+ '<li>' + planData[i] + '</li>' + '<li>' + results[0].formatted_address + '</li>' + '</ul>'
             });
 
             marker.addListener('click', function() {
