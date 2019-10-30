@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   get 'plans/update'
 
-  get 'maps/index', to: 'maps#index'
-
   get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
-
-  get 'planning/top'
 
   get 'sessions/new'
 
@@ -29,6 +25,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :maps, only: [:index]
-  resources :plans
+  resources :plans, only: [:index, :update]
 end
