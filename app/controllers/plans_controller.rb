@@ -35,6 +35,10 @@ class PlansController < ApplicationController
     ]
   end
 
+  def show
+    @plan = Plan.find(params[:id])
+  end
+
   private
     def plan_params
       params.require(:plan).permit(
