@@ -5,12 +5,21 @@ geocoderを用意
 
 var map
 var geocoder
+var bounds
 var marker = [];
 var markerData = gon.Data;
 var markerName = gon.markerName;
 var planData = gon.planData;
 var planDestinationPosition = [];
 
+
+function isPlanDataNull(array){
+  let count = 0;
+  array.forEach(function(value){
+    if(value === "") count++;
+  });
+  if(count === array.length) return true;
+}
 
 function initMap(){
   // geocoderを初期化
@@ -20,12 +29,17 @@ function initMap(){
   center: {lat: 35.6954806, lng: 139.76325010000005},
   zoom: 12
   });
-  if(planData){
+
+  if(!isPlanDataNull(planData)){
+      map = new google.maps.Map(document.getElementById("map"));
+      bounds = new google.maps.LatLngBounds();
+
       for(let i = 0 ; i < planData.length ; i++){
         console.log(planData[i])
-
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
+            bounds.extend(results[0].geometry.location);
+            map.fitBounds (bounds);
 
             var marker = new google.maps.Marker({
                 map: map,
@@ -33,6 +47,7 @@ function initMap(){
                 label: `${i + 1}`
             });
             //planDestinationPosition.push(results[0])
+
             var infowindow = new google.maps.InfoWindow({
               content: '<ul>'+ '<li>' + planData[i] + '</li>' + '<li>' + results[0].formatted_address + '</li>' + '</ul>'
             });
@@ -107,7 +122,7 @@ function addMarker(){
 
   var inputAddress = document.getElementById('markerAddress').value;
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
+    if (status == 'OK'){
 　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
@@ -123,11 +138,11 @@ function addMarker(){
       marker.addListener('click', function() {
         infowindow.open(map, marker);
       });
-
-    } else {
+    }else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
+
 
   if(!document.getElementById('dest1').value){
     document.getElementById('dest1').value = inputAddress;
