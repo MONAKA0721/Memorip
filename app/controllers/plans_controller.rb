@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def index
-    @plans = Plan.paginate(page: params[:page])
+    @plans = Plan.all.paginate(page: params[:page])
   end
 
   def update
@@ -43,9 +43,21 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
+  def create
+    @plan = Plan.new(plan_params)
+    if @plan.save
+      redirect_to controller: 'plans', action: 'index'
+    end
+  end
+
+  def new
+    @plan = Plan.new
+  end
+
   private
     def plan_params
       params.require(:plan).permit(
+        :title,
         :destination1,
         :destination2,
         :destination3,

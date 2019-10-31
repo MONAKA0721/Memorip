@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav mr-auto">
         <li class="nav-item"><%= link_to "Home",   root_path , class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Help",   help_path , class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "プラン作成", "/plans", class: "nav-link"%></li>
+        <li class="nav-item"><%= link_to "プラン一覧", "/plans", class: "nav-link"%></li>
         <% if logged_in? %>
           <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link" %></li>
           <li class="dropdown nav-item">
@@ -15,6 +15,8 @@
             <div class="dropdown-menu">
               <%= link_to "Profile", current_user, class: "dropdown-item" %>
               <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item"%>
+              <%= link_to "プラン作成", planup_path, class: "dropdown-item"%>
+              <%= link_to "プラン編集", "/plans/1/edit", class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item"%>
             </div>
