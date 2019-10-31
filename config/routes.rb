@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   get 'plans/update'
 
-  get 'maps/index', to: 'maps#index'
-
   get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
-
-  get 'planning/top'
 
   get 'sessions/new'
 
@@ -20,6 +16,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/search', to: 'users#search'
+  get '/planup', to: 'plans#new'
+  post '/planup', to: 'plans#create'
   resources :users do
     member do
       get :following, :followers
@@ -29,6 +27,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :maps, only: [:index]
-  resources :plans
+  resources :plans, only: [:index, :update, :show, :edit, :new, :create]
 end
