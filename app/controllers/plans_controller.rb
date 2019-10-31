@@ -32,7 +32,7 @@ class PlansController < ApplicationController
       @plan.destination8,
       @plan.destination9,
       @plan.destination10
-      ]
+    ]
   end
 
   def show
