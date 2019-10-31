@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/search', to: 'users#search'
+  get '/planup', to: 'plans#new'
+  post '/planup', to: 'plans#create'
   resources :users do
     member do
       get :following, :followers
@@ -25,5 +27,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :plans, only: [:index, :update, :show]
+  resources :plans, only: [:index, :update, :show, :edit, :new, :create]
 end

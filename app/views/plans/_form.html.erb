@@ -1,0 +1,13 @@
+<%= form_for(@plan, url: yield(:url) ) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :destination1 %>
+  <%= f.text_field :destination1, class: 'form-control' %>
+
+  <%= f.label :destination1time %>
+  <%= f.datetime_select :destination1time, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
