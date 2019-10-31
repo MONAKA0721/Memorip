@@ -1,11 +1,15 @@
 class PlansController < ApplicationController
-  def update
-    @plan = Plan.first
-    @plan.update_attributes(plan_params)
-    redirect_to controller: 'plans', action: 'index'
+  def index
+    @plans = Plan.paginate(page: params[:page])
   end
 
-  def index
+  def update
+    @plan = Plan.find(params[:id])
+    @plan.update_attributes(plan_params)
+    redirect_to controller: 'plans', action: 'edit'
+  end
+
+  def edit
     if params[:markerName]
       gon.markerName = params[:markerName]
     end
@@ -20,7 +24,7 @@ class PlansController < ApplicationController
         ]
     end
 
-    @plan = Plan.first
+    @plan = Plan.find(params[:id])
     gon.planData = [
       @plan.destination1,
       @plan.destination2,

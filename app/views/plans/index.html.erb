@@ -1,82 +1,10 @@
-<%= javascript_include_tag 'gmap.js' %>
-<h2>地図しおり</h2>
+<% provide(:title, 'All users') %>
+<h1>All plans</h1>
 
-<div id='mapContainer'>
-  <div id='planList'>
-    <div id='planTitle'>
-      <h3>タイトル</h3>
-      <%= @plan.title %>
-    </div>
-    <div id='planProcess'>
-    <h4>行程</h4>
-    <ol class='planLocation' style="width:300px">
-      <%= form_for(@plan, url:{controller:'plans', action:'update'}) do |f| %>
-      <div class='form-row'>
-        <li>
-          <%= f.time_field :destination1time, {id: "dest_time1", class: 'col-5'} %>
-          <%= f.text_field :destination1, {id: "dest1", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination2time, {id: "dest_time2", class: 'col-5'} %>
-          <%= f.text_field :destination2, {id: "dest2", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination3time, {id: "dest_time3", class: 'col-5'} %>
-          <%= f.text_field :destination3, {id: "dest3", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination4time, {id: "dest_time4", class: 'col-5'} %>
-          <%= f.text_field :destination4, {id: "dest4", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination5time, {id: "dest_time5", class: 'col-5'} %>
-          <%= f.text_field :destination5, {id: "dest5", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination6time, {id: "dest_time6", class: 'col-5'} %>
-          <%= f.text_field :destination6, {id: "dest6", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination7time, {id: "dest_time7", class: 'col-5'} %>
-          <%= f.text_field :destination7, {id: "dest7", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination8time, {id: "dest_time8", class: 'col-5'} %>
-          <%= f.text_field :destination8, {id: "dest8", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination9time, {id: "dest_time9", class: 'col-5'} %>
-          <%= f.text_field :destination9, {id: "dest9", class: "col-6"} %>
-        </li>
-        <li>
-          <%= f.time_field :destination10time, {id: "dest_time10", class: 'col-5'} %>
-          <%= f.text_field :destination10, {id: "dest10", class: "col-6"} %>
-        </li>
-      </div>
-      <%= f.submit %>
-      <% end %>
-    </ol>
+<%= will_paginate %>
 
+<ul class="plans">
+  <%= render @plans %>
+</ul>
 
-  </div>
-  </div>
-
-  <div id='item'>
-    <input id="address" type="textbox" placeholder="都道府県を入力してください">
-    <!-- buttonをクリックしたらcodeAddressを実行　-->
-    <input type="button" value="移動" onclick="codeAddress()">
-    <div id='map'>
-    </div>
-
-    <input id="markerAddress" type="textbox" >
-    <input type="button" value="追加" onclick="addMarker()">
-
-    <!-- <%= react_component('mapLink') %> -->
-
-  </div>
-</div>
-<!-- <%= react_component('link') %> -->
-
-<div id="planLink">
-  <a href=/plans/<%= @plan.id %>>Go!!</a>
-</div>
+<%= will_paginate %>
