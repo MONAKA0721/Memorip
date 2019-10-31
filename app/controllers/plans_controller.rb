@@ -46,7 +46,7 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to controller: 'plans', action: 'index'
+      redirect_to controller: 'plans', action: 'show', id: @plan.id
     end
   end
 
