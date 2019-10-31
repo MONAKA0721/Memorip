@@ -32,7 +32,15 @@ class PlansController < ApplicationController
       @plan.destination8,
       @plan.destination9,
       @plan.destination10
+<<<<<<< HEAD
       ]
+=======
+    ]
+  end
+
+  def show
+    @plan = Plan.find(params[:id])
+>>>>>>> a1b578d5870ffffffd38c6c726c407efa325c990
   end
 
   private
@@ -47,7 +55,16 @@ class PlansController < ApplicationController
         :destination7,
         :destination8,
         :destination9,
-        :destination10
-        )
+        :destination1time,
+        :destination2time,
+        :destination3time,
+        :destination4time,
+        :destination5time,
+        :destination6time,
+        :destination7time,
+        :destination8time,
+        :destination9time,
+        :destination10time
+      )
     end
 end

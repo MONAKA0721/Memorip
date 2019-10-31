@@ -25,5 +25,9 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+<<<<<<< HEAD
   resources :plans, only: [:index, :update]
+=======
+  resources :plans, only: [:index, :update, :show]
+>>>>>>> a1b578d5870ffffffd38c6c726c407efa325c990
 end
