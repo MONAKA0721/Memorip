@@ -14,7 +14,7 @@ var planDestinationPosition = [];
 
 
 function isPlanDataNull(array){
-  let count = 0;
+  var count = 0;
   array.forEach(function(value){
     if(value === "") count++;
   });
@@ -34,7 +34,7 @@ function initMap(){
       map = new google.maps.Map(document.getElementById("map"));
       bounds = new google.maps.LatLngBounds();
 
-      for(let i = 0 ; i < planData.length ; i++){
+      for(var i = 0 ; i < planData.length ; i++){
         console.log(planData[i])
         geocoder.geocode( { 'address': planData[i] }, function(results, status) {
           if (status == 'OK'){
