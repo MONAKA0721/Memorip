@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  time: 2019-11-02 21:25:35
+  plan: one
+
+two:
+  name: MyText
+  time: 2019-11-02 21:25:35
+  plan: two

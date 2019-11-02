@@ -31,3 +31,14 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+10.times do |n|
+  title = Faker::Name.title
+  Plan.create!(title: title)
+end
+
+plans = Plan.last(5)
+10.times do
+  name = Faker::Lorem.sentence(1)
+  plans.each { |plan| plan.destinations.create!(name: name) }
+end

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190808010123) do
+ActiveRecord::Schema.define(version: 20191102122535) do
+
+  create_table "destinations", force: :cascade do |t|
+    t.text "name"
+    t.time "time"
+    t.integer "plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_destinations_on_plan_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"

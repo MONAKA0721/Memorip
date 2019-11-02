@@ -41,6 +41,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    @destinations = @plan.destinations
   end
 
   def create
