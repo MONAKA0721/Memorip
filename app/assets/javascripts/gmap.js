@@ -16,7 +16,7 @@ var planDestinationPosition = [];
 function isPlanDataNull(array){
   let count = 0;
   array.forEach(function(value){
-    if(value === "") count++;
+    if(value === "" || value === null) count++;
   });
   if(count === array.length) return true;
 }

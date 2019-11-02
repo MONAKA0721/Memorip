@@ -68,6 +68,7 @@ class PlansController < ApplicationController
         :destination7,
         :destination8,
         :destination9,
+        :destination10,
         :destination1time,
         :destination2time,
         :destination3time,
