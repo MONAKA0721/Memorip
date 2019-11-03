@@ -5,38 +5,18 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    @plan.update_attributes(plan_params)
-    redirect_to controller: 'plans', action: 'edit'
+    if @plan.update_attributes(plan_params)
+      flash[:success] = "プランが更新されました"
+      redirect_to edit_plan_url
+    else
+      flash[:danger] = "タイトルを入力してください"
+      redirect_to edit_plan_url
+    end
   end
 
   def edit
-    if params[:markerName]
-      gon.markerName = params[:markerName]
-    end
-    if params[:markerData]
-      gon.Data = params[:markerData]
-    else
-      gon.Data =[
-           {name: 'TAM 東京',
-           lat: 35.6954806,
-            lng: 139.76325010000005
-          }
-        ]
-    end
-
     @plan = Plan.find(params[:id])
-    gon.planData = [
-      @plan.destination1,
-      @plan.destination2,
-      @plan.destination3,
-      @plan.destination4,
-      @plan.destination5,
-      @plan.destination6,
-      @plan.destination7,
-      @plan.destination8,
-      @plan.destination9,
-      @plan.destination10
-    ]
+    gon.planData = @plan.destinations.map{|d| d.name}
   end
 
   def show
@@ -48,37 +28,22 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     if @plan.save
       redirect_to controller: 'plans', action: 'show', id: @plan.id
+    else
+      flash[:danger] = "タイトルを入力してください"
+      redirect_to acition: 'new'
     end
   end
 
   def new
     @plan = Plan.new
+    10.times { @plan.destinations.build }
   end
 
   private
     def plan_params
       params.require(:plan).permit(
         :title,
-        :destination1,
-        :destination2,
-        :destination3,
-        :destination4,
-        :destination5,
-        :destination6,
-        :destination7,
-        :destination8,
-        :destination9,
-        :destination10,
-        :destination1time,
-        :destination2time,
-        :destination3time,
-        :destination4time,
-        :destination5time,
-        :destination6time,
-        :destination7time,
-        :destination8time,
-        :destination9time,
-        :destination10time
+        destinations_attributes: [:id, :time, :name, :_destroy]
       )
     end
 end

@@ -5,6 +5,7 @@
         <%= @plan.title %>
       </h1>
     </section>
+    <%= link_to "編集", edit_plan_path %>
   </aside>
   <div class="col-md-8">
     <% if @plan.destinations.any? %>

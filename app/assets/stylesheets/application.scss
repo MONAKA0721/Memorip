@@ -122,16 +122,22 @@
  }
 }
 
+// 地図しおり
+form > ol{
+  padding-inline-start: 0px;
+}
 #mapContainer{
   display:grid;
   grid-template-columns: 320px 1fr;
 }
 #planList{
   border-right: solid thin gray;
+  padding-right: 10px;
 }
 #item{
-  margin-left: 20px;
+  margin: auto 0px auto 20px;;
 }
-#planTitle{
-  margin-bottom : 20px;
+#planLink{
+  margin-top: 30px;
+  text-align: center;
 }

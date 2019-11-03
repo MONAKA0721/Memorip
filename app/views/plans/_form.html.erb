@@ -1,13 +1,22 @@
 <%= form_for(@plan, url: yield(:url) ) do |f| %>
 
-  <%= f.label :title %>
+  <%= f.label :タイトル %>
   <%= f.text_field :title, class: 'form-control' %>
 
-  <%= f.label :destination1 %>
-  <%= f.text_field :destination1, class: 'form-control' %>
+  <label>行程</label>
+  <ol>
+    <%= f.fields_for :destinations do |destinations_form| %>
+      <li style="display:inline-flex">
+        <div class="col-5">
+          <%= destinations_form.time_field :time, class: 'form-control' %>
+        </div>
 
-  <%= f.label :destination1time %>
-  <%= f.datetime_select :destination1time, class: 'form-control' %>
+        <div class="col-6">
+          <%= destinations_form.text_field :name, class: 'form-control' %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

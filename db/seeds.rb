@@ -32,13 +32,15 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-10.times do |n|
-  title = Faker::Name.title
+Faker::Config.locale = :ja
+
+20.times do |n|
+  title = Faker::Ancient.god
   Plan.create!(title: title)
 end
 
-plans = Plan.last(5)
+plans = Plan.all
 10.times do
-  name = Faker::Lorem.sentence(1)
+  name = Faker::Address.city
   plans.each { |plan| plan.destinations.create!(name: name) }
 end
