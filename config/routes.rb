@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sitemap', to: redirect('http://s3-ap-northeast-1.amazonaws.com/'+ENV['S3_BUCKET']+'/sitemaps/sitemap.xml.gz')
+
   get 'plans/update'
 
   get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'

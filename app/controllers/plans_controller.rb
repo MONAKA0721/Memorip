@@ -1,4 +1,6 @@
 class PlansController < ApplicationController
+  before_action :logged_in_user, only: [:create]
+
   def index
     @plans = Plan.all.paginate(page: params[:page])
   end
@@ -25,7 +27,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(plan_params)
+    @plan = @current_user.plans.build(plan_params)
     if @plan.save
       redirect_to controller: 'plans', action: 'show', id: @plan.id
     else
@@ -43,6 +45,7 @@ class PlansController < ApplicationController
     def plan_params
       params.require(:plan).permit(
         :title,
+        :picture,
         destinations_attributes: [:id, :time, :name, :_destroy]
       )
     end

@@ -17,5 +17,6 @@ module Tristagram
     # -- all .rb files in that directory are automatically loaded.
     # 認証トークンをremoteフォームに埋め込む
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.i18n.default_locale = :ja
   end
 end

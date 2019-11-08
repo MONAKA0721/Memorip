@@ -24,6 +24,8 @@ gem "actionview", ">= 5.1.6.2"
 gem 'will_paginate-bootstrap4'
 gem 'jp_prefecture'
 gem 'gon'
+gem 'rails-i18n'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

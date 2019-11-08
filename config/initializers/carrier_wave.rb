@@ -1,5 +1,9 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
+    
+    # This is necessary for sitemap_generator
+    config.storage = :fog
+
     config.fog_credentials = {
       # Amazon S3用の設定
       :provider              => 'AWS',
