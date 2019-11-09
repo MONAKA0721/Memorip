@@ -1,6 +1,6 @@
 class Plan < ApplicationRecord
   belongs_to :user
-  has_many :destinations, dependent: :destroy
+  has_many :destinations, as: :placeable, dependent: :destroy
   accepts_nested_attributes_for :destinations, allow_destroy: true
   # , reject_if: :all_blank
   validates :title, presence: true
