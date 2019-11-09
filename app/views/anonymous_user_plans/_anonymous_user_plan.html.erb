@@ -1,0 +1,15 @@
+<li>
+  <div id="plan-info" class="plan-inline-block">
+    <div id="plan-user" class="plan-inline-block">名無しさん</div>
+    <div id="plan-posted-time">
+      <%= time_ago_in_words(anonymous_user_plan.created_at) %>前
+    </div>
+    <br>
+    <%= link_to anonymous_user_plan.title, anonymous_user_plan %>
+    <div id="plan-location">ここに都市を記述します</div>
+  </div>
+  <div id="planThumb" class="plan-inline-block">
+    <%= image_tag anonymous_user_plan.picture.url(:planThumb) if anonymous_user_plan.picture? %>
+  </div>
+  <hr/>
+</li>

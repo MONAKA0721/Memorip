@@ -45,3 +45,13 @@ img{
     font-size: 16px;
   }
 }
+.tabs{
+  display: flex;
+  justify-content: center;
+  li{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0px 5px;
+  }
+}

@@ -7,6 +7,7 @@ class Plan < ApplicationRecord
   validates :user_id, presence: true
   validate  :picture_size
   mount_uploader :picture, PictureUploader
+  default_scope -> { order(created_at: :desc) }
 
   private
     def picture_size

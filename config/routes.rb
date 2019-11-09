@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :plans, only: [:index, :update, :show, :edit, :new, :create]
+  resources :anonymous_user_plans
 end

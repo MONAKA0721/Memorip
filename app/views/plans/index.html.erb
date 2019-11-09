@@ -1,10 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <% provide(:title, 'All plans') %>
 <h1>旅メモ</h1>
+<div id="trip-memos">
+  <ul class="tabs">
+    <li @click="changeMemos(1)">登録済みユーザー</li>
+    <li @click="changeMemos(0)">未登録ユーザー</li>
+  </ul>
+  <div id="named-user-memos" v-if="named">
+    <%= will_paginate %>
+    <ul class="plans">
+      <%= render @plans %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+  <div id="anonymous-user-memos" v-if="anonymous">
+    <ul class="plans">
+      <%= render @anonymousUserPlans %>
+    </ul>
+  </div>
+</div>
 
-<%= will_paginate %>
-
-<ul class="plans">
-  <%= render @plans %>
-</ul>
-
-<%= will_paginate %>
+<%= javascript_include_tag 'plan.js' %>
