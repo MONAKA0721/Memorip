@@ -91,29 +91,29 @@
 }
 
 /* slideshow */
-.slideshow {
- width: 100%; /* スライドショー幅（PC）*/
- list-style-type: none;
- position: relative;
- display: block;
-}
-
-.slideshow > li {
- margin:0 auto;
- opacity: 0;
- position: absolute;
- transition: opacity 3s ease-in-out; /*フェード時間・イージング*/
-}
-
-.slideshow > li.showSlide{
- opacity: 1;
-}
-
-.slideshow > li > img {
- width : 100%;
- height: 400px;
- object-fit: cover;
-}
+// .slideshow {
+//  width: 100%; /* スライドショー幅（PC）*/
+//  list-style-type: none;
+//  position: relative;
+//  display: block;
+// }
+//
+// .slideshow > li {
+//  margin:0 auto;
+//  opacity: 0;
+//  position: absolute;
+//  transition: opacity 3s ease-in-out; /*フェード時間・イージング*/
+// }
+//
+// .slideshow > li.showSlide{
+//  opacity: 1;
+// }
+//
+// .slideshow > li > img {
+//  width : 100%;
+//  height: 400px;
+//  object-fit: cover;
+// }
 
 /* SP用メディアクエリ */
 @media screen and (max-width:600px){
