@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  '/help', to: 'static_pages#help'
   get  '/about', to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
+  get  '/create', to: 'static_pages#create'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   get '/search', to: 'users#search'
   get '/planup', to: 'plans#new'
   post '/planup', to: 'plans#create'
+  get '/anonymous_user_planup', to: 'anonymous_user_plans#new'
+  post '/anonymous_user_planup', to: 'anonymous_user_plans#create'
   resources :users do
     member do
       get :following, :followers
