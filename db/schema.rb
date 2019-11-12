@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191108013315) do
+ActiveRecord::Schema.define(version: 20191109092357) do
+
+  create_table "anonymous_user_plans", force: :cascade do |t|
+    t.string "title"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.text "name"
@@ -18,6 +25,9 @@ ActiveRecord::Schema.define(version: 20191108013315) do
     t.integer "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "placeable_type"
+    t.integer "placeable_id"
+    t.index ["placeable_type", "placeable_id"], name: "index_destinations_on_placeable_type_and_placeable_id"
     t.index ["plan_id"], name: "index_destinations_on_plan_id"
   end
 

@@ -3,6 +3,7 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.all.paginate(page: params[:page])
+    @anonymousUserPlans = AnonymousUserPlan.all
   end
 
   def update
@@ -27,7 +28,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = @current_user.plans.build(plan_params)
+    @plan = current_user.plans.build(plan_params)
     if @plan.save
       redirect_to controller: 'plans', action: 'show', id: @plan.id
     else
@@ -46,6 +47,7 @@ class PlansController < ApplicationController
       params.require(:plan).permit(
         :title,
         :picture,
+        :user_id,
         destinations_attributes: [:id, :time, :name, :_destroy]
       )
     end

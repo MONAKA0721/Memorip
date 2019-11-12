@@ -1,0 +1,18 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @anonymous_user_plan.title %>
+      </h1>
+    </section>
+    <%= link_to "編集", edit_anonymous_user_plan_path %>
+  </aside>
+  <div class="col-md-8">
+    <% if @anonymous_user_plan.destinations.any? %>
+      <h3>Destinations (<%= @anonymous_user_plan.destinations.count %>)</h3>
+      <ol class="destinations">
+        <%= render @destinations %>
+      </ol>
+    <% end %>
+  </div>
+</div>

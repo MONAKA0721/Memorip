@@ -1,10 +1,7 @@
-class Plan < ApplicationRecord
-  belongs_to :user
+class AnonymousUserPlan < ApplicationRecord
   has_many :destinations, as: :placeable, dependent: :destroy, inverse_of: :placeable
   accepts_nested_attributes_for :destinations, allow_destroy: true
-  # , reject_if: :all_blank
   validates :title, presence: true
-  validates :user_id, presence: true
   validate  :picture_size
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }

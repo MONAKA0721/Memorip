@@ -1,11 +1,11 @@
 <% provide(:title, 'プラン作成') %>
 <% provide(:button_text, 'プランを作成する') %>
-<% provide(:url, planup_path) %>
+<% provide(:url, anonymous_user_planup_path) %>
 
 <h1>プラン作成</h1>
 
 <div class>
-  <%= form_for(@plan, url: yield(:url) ) do |f| %>
+  <%= form_for(@anonymous_user_plan, url: yield(:url) ) do |f| %>
 
     <%= f.label :タイトル %>
     <%= f.text_field :title, class: 'form-control' ,value:'新しい旅行' %>
@@ -25,7 +25,7 @@
       <% end %>
     </ol>
     <div class="center-button">
-      <button type="button" onclick="updateMap('plan')">地図に反映</button>
+      <button type="button" onclick="updateMap('anonymous_user_plan')">地図に反映</button>
     </div>
     <div id="map">
     </div>
