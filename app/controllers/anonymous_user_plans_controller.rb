@@ -19,6 +19,22 @@ class AnonymousUserPlansController < ApplicationController
     end
   end
 
+  def edit
+    @anonymous_user_plan = AnonymousUserPlan.find(params[:id])
+    gon.planData = @anonymous_user_plan.destinations.map{|d| d.name}
+  end
+
+  def update
+    @anonymous_user_plan = AnonymousUserPlan.find(params[:id])
+    if @anonymous_user_plan.update_attributes(plan_params)
+      flash[:success] = "プランが更新されました"
+      redirect_to edit_anonymous_user_plan_url
+    else
+      flash[:danger] = "タイトルを入力してください"
+      redirect_to edit_anonymous_user_plan_url
+    end
+  end
+
   private
     def plan_params
       params.require(:anonymous_user_plan).permit(

@@ -25,7 +25,6 @@ function initMap(planData){
     bounds = new google.maps.LatLngBounds();
 
     for(let i = 0 ; i < planData.length ; i++){
-      console.log(planData[i])
       geocoder.geocode( { 'address': planData[i] }, function(results, status) {
         if (status == 'OK'){
           bounds.extend(results[0].geometry.location);
@@ -96,10 +95,10 @@ function addMarker(){
   document.getElementById('markerAddress').value = '';
 }
 
-function getDestinations() {
+function getDestinations(controllerName) {
   let destinations = [];
   for(let i = 0; i < 10; i++){
-    let id = 'plan_destinations_attributes_' + i + '_name';
+    let id = controllerName + '_destinations_attributes_' + i + '_name';
     if(document.getElementById(id).value){
       destinations.push(document.getElementById(id).value)
     }
@@ -107,8 +106,8 @@ function getDestinations() {
   return destinations;
 }
 
-function updateMap(){
-  const destinations = getDestinations();
+function updateMap(controllerName){
+  const destinations = getDestinations(controllerName);
   initMap(destinations)
 }
 window.onload = function(){
