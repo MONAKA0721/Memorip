@@ -14,6 +14,12 @@ ul{
 .plan-inline-block{
   display: inline-block;
 }
+.center-button{
+  text-align: center;
+  button{
+    margin-bottom: 10px;
+  }
+}
 #plan-info{
   width: 200px;
   #plan-location {
