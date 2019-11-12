@@ -10,6 +10,6 @@ $(function(){
      transitionDuration: 3000, //エフェクト時間をミリ秒単位で設定
      cover: true,
      timer: false,
-     overlay: 'http://jaysalvat.github.io/vegas/releases/latest/overlays/06.png'
+     overlay: 'https://jaysalvat.github.io/vegas/releases/latest/overlays/06.png'
   });
 });
