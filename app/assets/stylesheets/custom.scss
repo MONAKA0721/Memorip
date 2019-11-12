@@ -11,7 +11,6 @@ $state-danger-text: #a94442;
 }
 
 /* universal */
-
 body {
   padding-top: 0 !important;
 }
@@ -39,7 +38,7 @@ textarea {
 
 .rowHome{
   position: relative;
-  top: 560px;
+  top: 340px;
 }
 /* typography */
 
@@ -97,8 +96,6 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
-  position: relative;
-  top: 700px;
 }
 
 footer a {
@@ -111,6 +108,7 @@ footer a:hover {
 
 footer small {
   float: left;
+  color: #b5b5b5;
 }
 
 footer ul {
@@ -121,6 +119,7 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+  color: #b5b5b5;
 }
 
 /* miscellaneous */
@@ -344,9 +343,9 @@ span.picture {
 }
 
 .postBox{
-  background-color: #ff070759;
+  background-color: #f35f5f;
 }
 
 .planningBox{
-  background-color: #02c8ea45;
+  background-color: #44d7f1eb;
 }

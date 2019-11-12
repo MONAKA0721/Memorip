@@ -19,12 +19,43 @@
 
 
 /*top page*/
+#home_body{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ddd;
+  padding: 40px;
+}
+
+
+#Sitetitle{
+    color: white;
+    font-family: 'Tahoma';
+    text-align: center;
+    font-size: 60px;
+    padding: 0px 50px 0px 0px;
+    position: relative;
+    top: 120px;
+}
+
+#Sitetitle:before{
+  content: '';
+  display: inline-block;
+  width: 80px;
+  height: 90px;
+  background-image: url("jet_white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
 .signUpButton{
   width : 200px;
   display: block;
   margin-top: 2rem;
   position: relative;
-  top: 560px;
+  top: 350px;
 }
 
 #header_layout {
@@ -32,8 +63,9 @@
 }
 
 #planDescript_title{
+  color: white;
   position: relative;
-  top: 490px;
+  top: 280px;
   background-image: url("plan.png");
   background-size: 44px 44px;
   background-repeat: no-repeat;
@@ -41,8 +73,9 @@
 }
 
 #tweetDescript_title{
+  color: white;
   position: relative;
-  top: 490px;
+  top: 280px;
   background-image: url("tweet.png");
   background-size: 40px 40px;
   background-repeat: no-repeat;
@@ -50,23 +83,26 @@
 }
 
 #planDescript{
+  color: white;
   position: relative;
-  top: 500px;
+  top: 300px;
   padding-top: 12px;
   padding-left: 10px;
 }
 
 #tweetDescript{
+  color: white;
   position: relative;
-  top: 500px;
+  top: 300px;
   padding-top: 12px;
   padding-left: 10px;
 }
 /* トップページ */
 #description{
   position: relative;
-  top:460px;
+  top:200px;
   margin-bottom: 30px;
+  color: white;
 }
 
 .createButton{
