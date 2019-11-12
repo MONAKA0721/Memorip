@@ -5,49 +5,14 @@
         <%= @plan.title %>
       </h1>
     </section>
+    <%= link_to "編集", edit_plan_path %>
   </aside>
   <div class="col-md-8">
-      <ul>
-        <li>
-          <%= @plan.destination1time %>
-          <%= @plan.destination1 %>
-        </li>
-        <li>
-          <%= @plan.destination2time %>
-          <%= @plan.destination2 %>
-        </li>
-        <li>
-          <%= @plan.destination3time %>
-          <%= @plan.destination3 %>
-        </li>
-        <li>
-          <%= @plan.destination4time %>
-          <%= @plan.destination4 %>
-        </li>
-        <li>
-          <%= @plan.destination5time %>
-          <%= @plan.destination5 %>
-        </li>
-        <li>
-          <%= @plan.destination6time %>
-          <%= @plan.destination6 %>
-        </li>
-        <li>
-          <%= @plan.destination7time %>
-          <%= @plan.destination7 %>
-        </li>
-        <li>
-          <%= @plan.destination8time %>
-          <%= @plan.destination8 %>
-        </li>
-        <li>
-          <%= @plan.destination9time %>
-          <%= @plan.destination9 %>
-        </li>
-        <li>
-          <%= @plan.destination10time %>
-          <%= @plan.destination10 %>
-        </li>
-      </ul>
+    <% if @plan.destinations.any? %>
+      <h3>Destinations (<%= @plan.destinations.count %>)</h3>
+      <ol class="destinations">
+        <%= render @destinations %>
+      </ol>
+    <% end %>
   </div>
 </div>

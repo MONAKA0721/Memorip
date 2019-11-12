@@ -35,3 +35,5 @@ yarn-debug.log*
 /.env
 
 .DS_Store
+
+/public/sitemaps/sitemap.xml.gz

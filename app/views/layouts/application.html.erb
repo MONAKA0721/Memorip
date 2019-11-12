@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tristagram</title>
+    <title>Memorip</title>
     <%= csrf_meta_tags %>
     <%= include_gon(:init => true) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', :debug => true %>
+    <% self_css_path = "/assets/"+controller.controller_name  %>
+    <%= stylesheet_link_tag self_css_path, :media => "all" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' , :debug => true %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <meta name="google-site-verification" content="po8157oyj1IXaaMxeAi_p5sJOJ9TJtPqYZAIHN800pQ" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="http://jaysalvat.github.io/vegas/releases/latest/vegas.min.css" >
+    <script script src="http://jaysalvat.github.io/vegas/releases/latest/vegas.js"></script>
     <script src=<%=ENV['GOOGLE_MAP_URL']%> async defer></script>
   </head>
 

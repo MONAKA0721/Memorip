@@ -1,0 +1,44 @@
+class RemoveDestinationToPlans < ActiveRecord::Migration[5.1]
+  def change
+    remove_column :plans, :destination1, :string
+    remove_column :plans, :destination2, :string
+    remove_column :plans, :destination3, :string
+    remove_column :plans, :destination4, :string
+    remove_column :plans, :destination5, :string
+    remove_column :plans, :destination6, :string
+    remove_column :plans, :destination7, :string
+    remove_column :plans, :destination8, :string
+    remove_column :plans, :destination9, :string
+    remove_column :plans, :destination10, :string
+    remove_column :plans, :destination11, :string
+    remove_column :plans, :destination12, :string
+    remove_column :plans, :destination13, :string
+    remove_column :plans, :destination14, :string
+    remove_column :plans, :destination15, :string
+    remove_column :plans, :destination16, :string
+    remove_column :plans, :destination17, :string
+    remove_column :plans, :destination18, :string
+    remove_column :plans, :destination19, :string
+    remove_column :plans, :destination20, :string
+    remove_column :plans, :destination1time, :time
+    remove_column :plans, :destination2time, :time
+    remove_column :plans, :destination3time, :time
+    remove_column :plans, :destination4time, :time
+    remove_column :plans, :destination5time, :time
+    remove_column :plans, :destination6time, :time
+    remove_column :plans, :destination7time, :time
+    remove_column :plans, :destination8time, :time
+    remove_column :plans, :destination9time, :time
+    remove_column :plans, :destination10time, :time
+    remove_column :plans, :destination11time, :time
+    remove_column :plans, :destination12time, :time
+    remove_column :plans, :destination13time, :time
+    remove_column :plans, :destination14time, :time
+    remove_column :plans, :destination15time, :time
+    remove_column :plans, :destination16time, :time
+    remove_column :plans, :destination17time, :time
+    remove_column :plans, :destination18time, :time
+    remove_column :plans, :destination19time, :time
+    remove_column :plans, :destination20time, :time
+  end
+end

@@ -1,5 +1,6 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
+
     config.fog_credentials = {
       # Amazon S3用の設定
       :provider              => 'AWS',
@@ -8,5 +9,7 @@ if Rails.env.production?
       :aws_secret_access_key => ENV['S3_SECRET_KEY']
     }
     config.fog_directory     =  ENV['S3_BUCKET']
+    # This is necessary for sitemap_generator
+    config.storage = :fog
   end
 end

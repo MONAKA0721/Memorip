@@ -1,3 +1,47 @@
 // Place all the styles related to the plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul{
+  list-style: none;
+}
+#planThumb{
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100px;
+  text-align: right;
+  bottom:40px;
+}
+.plan-inline-block{
+  display: inline-block;
+}
+#plan-info{
+  width: 200px;
+  #plan-location {
+    margin-top: 10px;
+    background-color: #EEEEEE;
+  }
+  #plan-user{
+    margin-bottom: 10px;
+  }
+}
+img{
+  vertical-align: baseline;
+}
+#plan-posted-time{
+  display: inline-block;
+  background-color: #EEEEEE;
+}
+@media screen and (max-width:414px){
+  nav{
+    ul{
+      font-size: 10px;
+    }
+  }
+  h1{
+    font-size: 24px;
+  }
+  ul{
+    padding-left: 0px;
+    font-size: 16px;
+  }
+}
