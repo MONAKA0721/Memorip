@@ -12,6 +12,8 @@ $state-danger-text: #a94442;
 
 /* universal */
 body {
+  width: 100vw;
+  height: 100%;
   padding-top: 0 !important;
 }
 
@@ -34,12 +36,9 @@ textarea {
 .row{
   margin-left: auto;
   margin-right: auto;
+  padding-top: 20px; 
 }
 
-.rowHome{
-  position: relative;
-  top: 340px;
-}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -344,8 +343,14 @@ span.picture {
 
 .postBox{
   background-color: #f35f5f;
+  width: 80%;
+  height: 70%;
+  margin-bottom: 30px;
 }
 
 .planningBox{
   background-color: #44d7f1eb;
+  width: 80%;
+  height: 70%;
+  margin-bottom: 30px;
 }

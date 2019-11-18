@@ -19,24 +19,22 @@
 
 
 /*top page*/
-#home_body{
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ddd;
-  padding: 40px;
+#bg-slider {
+	height: 100%;
+	background-position:center;
+	background-size: cover;
+	align-items: center;
+	justify-content: center;
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+	margin-right: calc( ( 100% - 100vw ) / 2 );
 }
-
 
 #Sitetitle{
     color: white;
     font-family: 'Tahoma';
     text-align: center;
     font-size: 60px;
-    padding: 0px 50px 0px 0px;
-    position: relative;
-    top: 120px;
+    padding: 60px 50px 20px 0px;
 }
 
 #Sitetitle:before{
@@ -54,8 +52,6 @@
   width : 200px;
   display: block;
   margin-top: 2rem;
-  position: relative;
-  top: 350px;
 }
 
 #header_layout {
@@ -64,44 +60,52 @@
 
 #planDescript_title{
   color: white;
-  position: relative;
-  top: 280px;
+  padding: 14px 0px 0px 5px;
+}
+
+#planDescript_title:before{
+  content: '';
+  display: inline-block;
+  width: 50px;
+  height: 50px;
   background-image: url("plan.png");
-  background-size: 44px 44px;
+  background-size: contain;
   background-repeat: no-repeat;
-  padding: 14px 0px 0px 55px;
+  vertical-align: middle;
+  margin: 0px 10px 10px 0px;
 }
 
 #tweetDescript_title{
   color: white;
-  position: relative;
-  top: 280px;
+  padding: 14px 0px 0px 5px;
+}
+
+#tweetDescript_title:before{
+  content: '';
+  display: inline-block;
+  width: 50px;
+  height: 50px;
   background-image: url("tweet.png");
-  background-size: 40px 40px;
+  background-size: contain;
   background-repeat: no-repeat;
-  padding: 14px 0px 0px 55px;
+  vertical-align: middle;
+  margin: 0px 10px 10px 0px;
 }
 
 #planDescript{
   color: white;
-  position: relative;
-  top: 300px;
-  padding-top: 12px;
-  padding-left: 10px;
 }
 
 #tweetDescript{
   color: white;
-  position: relative;
-  top: 300px;
-  padding-top: 12px;
-  padding-left: 10px;
+}
+
+.space{
+  height: 100px;
 }
 /* トップページ */
 #description{
-  position: relative;
-  top:200px;
-  margin-bottom: 30px;
+  margin: 50px 0px 60px 0px;
   color: white;
 }
 
@@ -126,38 +130,6 @@
   margin-top: 20px;
 }
 
-/* slideshow */
-// .slideshow {
-//  width: 100%; /* スライドショー幅（PC）*/
-//  list-style-type: none;
-//  position: relative;
-//  display: block;
-// }
-//
-// .slideshow > li {
-//  margin:0 auto;
-//  opacity: 0;
-//  position: absolute;
-//  transition: opacity 3s ease-in-out; /*フェード時間・イージング*/
-// }
-//
-// .slideshow > li.showSlide{
-//  opacity: 1;
-// }
-//
-// .slideshow > li > img {
-//  width : 100%;
-//  height: 400px;
-//  object-fit: cover;
-// }
-
-/* SP用メディアクエリ */
-@media screen and (max-width:600px){
- .slideshow{
-   width : 100%; /* スライドショー幅（SP）*/
- }
-}
-
 // 地図しおり
 form > ol{
   padding-inline-start: 0px;
@@ -176,4 +148,16 @@ form > ol{
 #planLink{
   margin-top: 30px;
   text-align: center;
+}
+
+
+/* SP用Home画面ロゴ調整 */
+@media screen and (max-width:576px){
+  #Sitetitle{
+      color: white;
+      font-family: 'Tahoma';
+      text-align: center;
+      font-size: 50px;
+      padding: 60px 30px 20px 0px;
+  }
 }

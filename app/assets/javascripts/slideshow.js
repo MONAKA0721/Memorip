@@ -1,15 +1,12 @@
 $(function(){
-  $('#home_body').vegas({ //背景画像でスライドショーしたい場所の設定
-    slides: [
-     { src: '/Hokkaido.jpg' }, //スライドする画像を配列で設定
-     { src: '/Fuji.jpg' },
-     { src: '/Okinawa.jpg' }
-   ],
-     delay: 6000, //スライドまでの時間ををミリ秒単位で設定
-     transition: 'blur', //スライド間のエフェクトを設定
-     transitionDuration: 3000, //エフェクト時間をミリ秒単位で設定
-     cover: true,
-     timer: false,
-     overlay: 'https://jaysalvat.github.io/vegas/releases/latest/overlays/06.png'
+  $('#bg-slider').bgSwitcher({
+    images: ['/Hokkaido.jpg', '/Fuji.jpg','/Okinawa.jpg'], // 切り替える背景画像を指定
+    interval: 4000, // 背景画像を切り替える間隔を指定 3000=3秒
+    loop: true, // 切り替えを繰り返すか指定 true=繰り返す　false=繰り返さない
+    shuffle: true, // 背景画像の順番をシャッフルするか指定 true=する　false=しない
+    effect: "fade", // エフェクトの種類をfade,blind,clip,slide,drop,hideから指定
+    duration: 2000, // エフェクトの時間を指定します。
+    easing: "swing" // エフェクトのイージングをlinear,swingから指定
+
   });
 });
