@@ -17,7 +17,17 @@
  @import "custom.scss";
  @import "planning.scss";
 
-
+:root{
+  --theme-green: #68bda0;
+  --theme-light-green: #c8d627;
+  --theme-blue: #6490cd;
+  --theme-mid-blue: #44aeea;
+  --theme-gray: #f2f4f5;
+  --theme-white: #e4f0fc;
+}
+a{
+  color: var(--theme-mid-blue)
+}
 /*top page*/
 #bg-slider {
 	height: 100%;

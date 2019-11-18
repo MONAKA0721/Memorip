@@ -2,8 +2,6 @@ var map
 var geocoder
 var bounds
 var marker = [];
-var planDestinationPosition = [];
-
 
 function isPlanDataNull(array){
   let count = 0;
