@@ -1,4 +1,40 @@
 <li id="destination-<%= destination.id %>">
-  <span class="time"><%= destination.time %></span>
-  <span class="name"><%= destination.name %></span>
+  <div class="destination-info">
+    <% if !destination.time.nil? %>
+      <span class="time"><%= destination.time.strftime('%H:%M') %></span>
+    <% end %>
+    <span class="name"><%= destination.name %></span>
+    <div class="photo">
+      <img src="https://item-shopping.c.yimg.jp/i/n/kabegamiya-honpo_yknk-f-gray-n-lv1237">
+      </img>
+    </div>
+  </div>
+  <p>
+    ここに説明を書きます。詳細情報などつらつらと書いていきます
+  </p>
+  <hr/>
 </li>
+
+<style>
+.destination-info{
+  display:flex;
+}
+.destination-info span{
+  line-height:80px;
+}
+.name{
+  color:var(--theme-green);
+  font-size:18px;
+}
+.time{
+  margin-right:10px;
+  font-size:18px;
+}
+img{
+  width:100px;
+  height:80px;
+}
+.photo{
+  margin:0 0 0 auto;
+}
+</style>
