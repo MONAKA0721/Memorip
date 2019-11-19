@@ -4,15 +4,19 @@
   <%= f.text_field :title, class: 'form-control' %>
 
   <label>行程</label>
-  <ol>
+  <ol style="text-align: center;">
     <%= f.fields_for :destinations do |destinations_form| %>
       <li style="display:inline-flex">
-        <div class="col-5">
+        <div class="col-3">
           <%= destinations_form.time_field :time, class: 'form-control' %>
         </div>
 
-        <div class="col-6">
+        <div class="col-4">
           <%= destinations_form.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="col-5">
+          <%= destinations_form.file_field :picture, class: 'form-control', accept: 'image/jpeg,image/gif,image/png' %>
         </div>
       </li>
     <% end %>

@@ -5,39 +5,46 @@
 
 <h1>プラン作成</h1>
 
-<div class>
-  <%= form_for(@plan, url: yield(:url) ) do |f| %>
+<div id='mapContainer'>
+  <div id='planList'>
+    <%= form_for(@plan, url: yield(:url) ) do |f| %>
 
-    <%= f.label :タイトル %>
-    <%= f.text_field :title, class: 'form-control' ,value:'新しい旅行' %>
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, class: 'form-control' ,value:'新しい旅行' %>
 
-    <label>行程</label>
-    <ol>
-      <%= f.fields_for :destinations do |destinations_form| %>
-        <li style="display:inline-flex">
-          <div class="col-5">
-            <%= destinations_form.time_field :time, class: 'form-control' %>
-          </div>
+      <label>行程</label>
+      <ol style="text-align: center;">
+        <%= f.fields_for :destinations do |destinations_form| %>
+          <li style="display:inline-flex">
+            <div class="col-3">
+              <%= destinations_form.time_field :time, class: 'form-control' %>
+            </div>
 
-          <div class="col-6">
-            <%= destinations_form.text_field :name, class: 'form-control' %>
-          </div>
-        </li>
-      <% end %>
-    </ol>
-    <div class="center-button">
-      <button type="button" onclick="updateMap('plan')">地図に反映</button>
+            <div class="col-4">
+              <%= destinations_form.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="col-5">
+              <%= destinations_form.file_field :picture, class: 'form-control', accept: 'image/jpeg,image/gif,image/png' %>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+      <div class="center-button">
+        <button type="button" onclick="updateMap('plan')">地図に反映</button>
+      </div>
+  </div>
+  <div id="item">
+    <div id="map" style="height: 550px;">
     </div>
-    <div id="map">
-      tesut
-    </div>
-    <span class="picture">
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </span>
+      <span class="picture">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
 
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-  <% end %>
-
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
   <script type="text/javascript">
     $('#micropost_picture').bind('change', function() {
       var size_in_megabytes = this.files[0].size/1024/1024;
@@ -46,5 +53,3 @@
       }
     });
   </script>
-
-</div>

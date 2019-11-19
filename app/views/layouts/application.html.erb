@@ -4,6 +4,7 @@
     <title>Memorip</title>
     <%= csrf_meta_tags %>
     <%= include_gon(:init => true) %>
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', :debug => true %>
     <% self_css_path = "/assets/"+controller.controller_name  %>
     <%= stylesheet_link_tag self_css_path, :media => "all" %>
