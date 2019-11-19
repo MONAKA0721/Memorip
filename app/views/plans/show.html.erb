@@ -18,7 +18,11 @@
     <a>お気に入り</a>
   </div>
   <div class="link-button" id="clone-button">
-    <%= link_to "クローン/編集", edit_plan_path %>
+    <% if current_user?(@plan.user) %>
+      <%= link_to "編集", edit_plan_path %>
+    <% else %>
+      <%= link_to "クローン" %>
+    <% end %>
   </div>
 </div>
 <div id='plan-detail'>

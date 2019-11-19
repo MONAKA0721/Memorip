@@ -50,6 +50,10 @@ img{
     line-height:60px;
   }
 }
+.plan-index-title{
+  color: var(--theme-green);
+  font-size:20px;
+}
 #planThumb{
   margin-left: 0px;
   margin-right: 0px;
@@ -83,7 +87,7 @@ img{
     padding:15px;
   }
 }
-#plan-info{
+#plan-abst{
   width: 200px;
   #plan-location {
     margin-top: 10px;
