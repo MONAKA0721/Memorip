@@ -41,7 +41,7 @@ class AnonymousUserPlansController < ApplicationController
       params.require(:anonymous_user_plan).permit(
         :title,
         :picture,
-        destinations_attributes: [:id, :time, :name, :_destroy]
+        destinations_attributes: [:id, :time, :name, :_destroy, :picture]
       )
     end
 end
