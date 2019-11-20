@@ -29,11 +29,14 @@
       <button type="button" onclick="updateMap('plan')">地図に反映</button>
     </div>
     <div id="map">
-      tesut
     </div>
     <span class="picture">
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </span>
+    <div class="publish-buttons">
+      <label><%= f.radio_button :published, true %>公開する</label>
+      <label><%= f.radio_button :published, false %>非公開にする</label>
+    </div>
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   <% end %>
