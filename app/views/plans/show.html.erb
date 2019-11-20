@@ -1,18 +1,42 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @plan.title %>
-      </h1>
-    </section>
-    <%= link_to "編集", edit_plan_path %>
-  </aside>
-  <div class="col-md-8">
-    <% if @plan.destinations.any? %>
-      <h3>Destinations (<%= @plan.destinations.count %>)</h3>
-      <ol class="destinations">
-        <%= render @destinations %>
-      </ol>
+<div class="plan-info">
+  <div class="plan-title">
+    <h1>
+      <%= @plan.title %>
+    </h1>
+  </div>
+  <div class="plan-user">
+    <%= link_to @plan.user.name, @plan.user %>
+  </div>
+  <img src="https://item-shopping.c.yimg.jp/i/n/kabegamiya-honpo_yknk-f-gray-n-lv1237">
+  </img>
+</div>
+<div id="link-wrapper">
+  <div class="link-button" id="like-button">
+    <a>いいね</a>
+  </div>
+  <div class="link-button" id="favorite-button">
+    <a>お気に入り</a>
+  </div>
+  <div class="link-button" id="clone-button">
+    <% if current_user?(@plan.user) %>
+      <%= link_to "編集", edit_plan_path %>
+    <% else %>
+      <%= link_to "クローン" %>
     <% end %>
   </div>
 </div>
+<div id='plan-detail'>
+  <% if @plan.destinations.any? %>
+    <ol class="destinations">
+      <%= render @destinations %>
+    </ol>
+  <% end %>
+</div>
+<div id="map">
+</div>
+
+<style>
+.container{
+  padding:0px;
+}
+</style>

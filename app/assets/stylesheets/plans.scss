@@ -4,12 +4,22 @@
 ul{
   list-style: none;
 }
-#planThumb{
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100px;
-  text-align: right;
-  bottom:40px;
+img{
+  vertical-align: baseline;
+}
+.plan-info{
+  h1{
+  color:var(--theme-green);
+  margin-bottom:0px;
+  }
+}
+.plan-user{
+  text-align:right;
+  padding-right:10px;
+  padding-bottom:5px;
+  a{
+    font-size:18px;
+  }
 }
 .plan-inline-block{
   display: inline-block;
@@ -20,7 +30,64 @@ ul{
     margin-bottom: 10px;
   }
 }
-#plan-info{
+.plan-title{
+  padding:15px;
+}
+.plan-info{
+  font-size:0;
+  h1{
+    font-size:24px;
+  }
+  img{
+    width: 100%;
+    height: 230px;
+  }
+}
+.link-button{
+  height:60px;
+  width:100%;
+  a{
+    line-height:60px;
+  }
+}
+.plan-index-title{
+  color: var(--theme-green);
+  font-size:20px;
+}
+#planThumb{
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100px;
+  text-align: right;
+  bottom:40px;
+}
+#link-wrapper{
+  background-color:var(--theme-gray);
+  display:flex;
+  padding:7px;
+}
+#like-button{
+  border-right:solid 0.5px #c2c2c2;
+  text-align: center;
+}
+#favorite-button{
+  border-right: solid 0.5px #c2c2c2;
+  text-align: center;
+}
+#clone-button{
+  text-align: center;
+}
+#plan-detail{
+  padding: 0px;
+  ol{
+    padding-inline-start:0px;
+    list-style-type: none;
+  }
+  li{
+    padding:15px;
+  }
+}
+#plan-abst{
   width: 200px;
   #plan-location {
     margin-top: 10px;
@@ -29,13 +96,10 @@ ul{
   #plan-user{
     margin-bottom: 10px;
   }
-}
-img{
-  vertical-align: baseline;
-}
-#plan-posted-time{
-  display: inline-block;
-  background-color: #EEEEEE;
+  #plan-posted-time{
+    display: inline-block;
+    background-color: #EEEEEE;
+  }
 }
 @media screen and (max-width:414px){
   nav{

@@ -1,11 +1,11 @@
 <li>
-  <div id="plan-info" class="plan-inline-block">
+  <div id="plan-abst" class="plan-inline-block">
     <div id="plan-user" class="plan-inline-block"><%= link_to plan.user.name, plan.user %></div>
     <div id="plan-posted-time">
       <%= time_ago_in_words(plan.created_at) %>前
     </div>
     <br>
-    <%= link_to plan.title, plan %>
+    <%= link_to plan.title, plan, class:"plan-index-title" %>
     <div id="plan-location">ここに都市を記述します</div>
   </div>
   <div id="planThumb" class="plan-inline-block">

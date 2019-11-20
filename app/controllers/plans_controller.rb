@@ -25,6 +25,7 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @destinations = @plan.destinations
+    gon.planData = @destinations.map{|d| d.name}
   end
 
   def create

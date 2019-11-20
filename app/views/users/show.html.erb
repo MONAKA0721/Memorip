@@ -11,7 +11,7 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8" id="user-posts">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -20,5 +20,22 @@
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
+    <% if @user.plans.any? %>
+      <h3>旅メモ (<%= @user.plans.count %>)</h3>
+      <ul class="plans">
+        <%= render @plans %>
+      </ul>
+      <%= will_paginate @plans %>
+    <% end %>
   </div>
 </div>
+
+<style>
+.container{
+  padding:0px
+}
+ul{
+  padding-left:0px;
+  list-style: none;
+}
+</style>

@@ -35,6 +35,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb, if: :is_thumb?
   version :planThumb, if: :is_thumb?
+  version :destThumb, if: :is_thumb?
 
   version :planThumb do
     process resize_to_limit: [100, 100]
@@ -42,6 +43,10 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process resize_to_limit: [400, 400]
+  end
+
+  version :destThumb do
+    process resize_to_limit: [100, 80]
   end
 
   private
