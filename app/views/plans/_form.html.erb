@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'image_preview.js' %>
 <%= form_for(@plan, url: yield(:url) ) do |f| %>
 
   <%= f.label :タイトル %>
@@ -7,27 +8,19 @@
   <ol style="text-align: center;">
     <%= f.fields_for :destinations do |destinations_form| %>
       <li style="display:inline-flex">
-        <div class="col-3">
+        <div class="col-4">
           <%= destinations_form.time_field :time, class: 'form-control' %>
         </div>
 
-        <div class="col-4">
+        <div class="col-5">
           <%= destinations_form.text_field :name, class: 'form-control' %>
         </div>
 
-         <!-- id "file"で、fileとdivを紐付けクリック時に連動 -->
-      <div id="img_field" onClick="$('#file').click()" >
-        <!-- 画像があるときは画像を表示する -->
-        <% if destinations.picture.url.present? %>
-          <%= image_tag(destinations.picture.url) %>
-        <% else %>
-          <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
-        <% end %>
-      </div>
-
-        <div class="col-5">
-          <%= destinations_form.file_field :picture, style: 'display:none;', id:'file', class: 'form-control', accept: 'image/jpeg,image/gif,image/png' %>
+        <div class="view_box" style="display:flex;">
+          <%= image_tag '/Fileicon.jpg',class: 'select_file_image',onClick: "$('#file#{destinations_form.index}').click()" %>
+          <%= destinations_form.file_field :picture, style: 'display: none;',id:"file#{destinations_form.index}", class: 'form-control file', accept: 'image/jpeg,image/gif,image/png'%>
         </div>
+
       </li>
     <% end %>
   </ol>
@@ -45,28 +38,4 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
-
-  $(function(){
-  $fileField = $('#file')
-
-  // 選択された画像を取得し表示
-  $($fileField).on('change', $fileField, function(e) {
-    file = e.target.files[0]
-    reader = new FileReader(),
-    $preview = $("#img_field");
-
-    reader.onload = (function(file) {
-      return function(e) {
-        $preview.empty();
-        $preview.append($('<img>').attr({
-          src: e.target.result,
-          width: "100%",
-          class: "preview",
-          title: file.name
-        }));
-      };
-    })(file);
-    reader.readAsDataURL(file);
-  });
-});
 </script>

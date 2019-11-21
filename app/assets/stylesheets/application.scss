@@ -140,6 +140,14 @@ a{
   margin-top: 20px;
 }
 
+
+//マップページ画像ファイル選択
+.select_file_image{
+  width: 50px;
+  height: 45px;
+  cursor: pointer;
+}
+
 // PC用地図しおりレイアウト&PC用プラン作成画面
 @media screen and (min-width:768px){
 form > ol{
@@ -147,7 +155,7 @@ form > ol{
 }
 #mapContainer{
   display:grid;
-  grid-template-columns: 520px 1fr;
+  grid-template-columns: 420px 1fr;
 }
 #planList{
   border-right: solid thin gray;

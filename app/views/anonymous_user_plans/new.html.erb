@@ -1,4 +1,5 @@
 <%= javascript_include_tag 'gmap.js' %>
+<%= javascript_include_tag 'image_preview.js' %>
 <% provide(:title, 'プラン作成') %>
 <% provide(:button_text, 'プランを作成する') %>
 <% provide(:url, anonymous_user_planup_path) %>
@@ -16,16 +17,17 @@
         <ol  style="text-align: center;">
           <%= f.fields_for :destinations do |destinations_form| %>
             <li style="display:inline-flex">
-              <div class="col-3">
+              <div class="col-4">
                 <%= destinations_form.time_field :time, class: 'form-control' %>
               </div>
 
-              <div class="col-4">
+              <div class="col-5">
                 <%= destinations_form.text_field :name, class: 'form-control' %>
               </div>
 
-              <div class="col-5">
-                <%= destinations_form.file_field :picture, class: 'form-control', accept: 'image/jpeg,image/gif,image/png' %>
+              <div class="view_box" style="display:flex;">
+                <%= image_tag '/Fileicon.jpg',class: 'select_file_image',onClick: "$('#file#{destinations_form.index}').click()" %>
+                <%= destinations_form.file_field :picture, style: 'display: none;',id:"file#{destinations_form.index}", class: 'form-control file', accept: 'image/jpeg,image/gif,image/png'%>
               </div>
             </li>
           <% end %>
