@@ -101,6 +101,14 @@ img{
     background-color: #EEEEEE;
   }
 }
+form{
+  input[type="radio"]{
+    margin-bottom: 0px;
+  }
+  .publish-buttons{
+    text-align: center;
+  }
+}
 @media screen and (max-width:414px){
   nav{
     ul{
