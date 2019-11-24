@@ -1,5 +1,5 @@
 {
-  "name": "tristagram",
+  "name": "memorip",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
