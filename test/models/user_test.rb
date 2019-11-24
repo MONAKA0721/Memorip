@@ -113,4 +113,16 @@ class UserTest < ActiveSupport::TestCase
       assert_not michael.feed.include?(post_unfollowed)
     end
   end
+
+  test "should like and unlike a plan" do
+    user = User.first
+    plan  = Plan.first
+    assert_not user.liking?(plan)
+    user.like(plan)
+    assert user.liking?(plan)
+    assert plan.likers.include?(user)
+    user.unlike(plan)
+    assert_not user.liking?(plan)
+  end
+
 end
