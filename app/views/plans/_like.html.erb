@@ -1,0 +1,12 @@
+<%= link_to likes_path(plan_id: @plan.id), method: :post, remote: true  do %>
+  <div id="like-icon">
+    <i class="far fa-heart fa-2x"></i><br/>
+    いいね
+  </div>
+<% end %>
+
+<style>
+  #like-icon{
+    line-height:26px;
+  }
+</style>

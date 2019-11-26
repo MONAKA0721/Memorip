@@ -1,0 +1,7 @@
+<div class="link-button" id="like-button">
+<% if current_user.liking?(@plan) %>
+  <%= render 'unlike' %>
+<% else %>
+  <%= render 'like' %>
+<% end %>
+</div>

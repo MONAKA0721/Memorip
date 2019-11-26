@@ -1,0 +1,9 @@
+<% provide(:title, @title) %>
+<div>
+  <h1><%= @title %></h1>
+  <% if @plans.any? %>
+    <ul class="plans">
+      <%= render @plans %>
+    </ul>
+  <% end %>
+</div>

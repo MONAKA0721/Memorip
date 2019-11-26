@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                  :following, :followers]
+                                  :following, :followers, :liking]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -68,6 +68,13 @@ class UsersController < ApplicationController
     if logged_in?
       @feed_items = Micropost.where(prefecture_code: params[:prefecture_code]).paginate(page: params[:page])
     end
+  end
+
+  def liking
+    @title = "いいねした投稿"
+    @user  = User.find(params[:id])
+    @plans = @user.liking
+    render 'plans/show_like'
   end
 
   private

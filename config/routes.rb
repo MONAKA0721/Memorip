@@ -34,4 +34,15 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :plans, only: [:index, :update, :show, :edit, :new, :create]
   resources :anonymous_user_plans
+  resources :users do
+    member do
+      get :liking
+    end
+  end
+  resources :plans do
+    member do
+      get :likers
+    end
+  end
+  resources :likes, only: [:create, :destroy]
 end
