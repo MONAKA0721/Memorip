@@ -15,8 +15,10 @@ img{
     font-size:24px;
   }
   img{
-    width: 100%;
+    width: 230px;
     height: 230px;
+    display: block;
+    margin: 0 auto;
   }
 }
 .plan-user{
@@ -49,13 +51,6 @@ img{
 .plan-index-title{
   color: var(--theme-green);
   font-size:20px;
-}
-#planThumb{
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100px;
-  text-align: right;
-  bottom:40px;
 }
 #link-wrapper{
   background-color:var(--theme-gray);

@@ -170,6 +170,18 @@ form > ol{
 }
 
 }
+#planThumb{
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100px;
+  text-align: right;
+  bottom:40px;
+  img{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+  }
+}
 
 /* SP用Home画面ロゴ調整 */
 @media screen and (max-width:576px){

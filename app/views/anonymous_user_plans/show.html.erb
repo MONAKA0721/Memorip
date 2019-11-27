@@ -8,8 +8,13 @@
   <div class="plan-user">
     <h3>名無しさん</h3>
   </div>
-  <img src="https://item-shopping.c.yimg.jp/i/n/kabegamiya-honpo_yknk-f-gray-n-lv1237">
-  </img>
+  <div>
+    <% if @anonymous_user_plan.picture? %>
+      <%= image_tag @anonymous_user_plan.picture.url %>
+    <% else %>
+      <%= image_tag('no_image.png') %>
+    <% end %>
+  </div>
 </div>
 <div id="link-wrapper">
   <div class="link-button" id="like-button">

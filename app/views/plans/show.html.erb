@@ -8,8 +8,13 @@
   <div class="plan-user">
     <%= link_to @plan.user.name, @plan.user %>
   </div>
-  <img src="https://item-shopping.c.yimg.jp/i/n/kabegamiya-honpo_yknk-f-gray-n-lv1237">
-  </img>
+  <div>
+    <% if @plan.picture? %>
+      <%= image_tag @plan.picture.url %>
+    <% else %>
+      <%= image_tag('no_image.png') %>
+    <% end %>
+  </div>
 </div>
 <div id="link-wrapper">
   <%= render 'like_button' %>
