@@ -5,6 +5,9 @@ class AnonymousUserPlan < ApplicationRecord
   validate  :picture_size
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }
+  amoeba do
+    enable
+  end
 
   private
     def picture_size

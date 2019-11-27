@@ -41,6 +41,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    amoeba (3.1.0)
+      activerecord (>= 3.2.6)
     ansi (1.5.0)
     arel (8.0.0)
     autoprefixer-rails (9.6.1)
@@ -458,6 +460,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionview (>= 5.1.6.2)
+  amoeba
   bcrypt (= 3.1.12)
   bootstrap (~> 4.3.1)
   bootstrap-will_paginate (= 1.0.0)

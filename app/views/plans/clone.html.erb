@@ -1,0 +1,8 @@
+<%= javascript_include_tag 'gmap.js' %>
+<% provide(:title, 'プラン複製') %>
+<% provide(:button_text, 'プランを複製する') %>
+<% provide(:url, clone_path) %>
+
+<h1>プラン複製</h1>
+
+<%= render 'form' %>

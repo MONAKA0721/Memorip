@@ -43,6 +43,15 @@ class PlansController < ApplicationController
     10.times { @plan.destinations.build }
   end
 
+  def clone
+    if params[:is_anonymous]
+      p = AnonymousUserPlan.find(params[:id]).amoeba_dup
+    else
+      p = Plan.find(params[:id]).amoeba_dup
+    end
+    @plan = Plan.new(title:p.title, destinations: p.destinations)
+  end
+
   private
     def plan_params
       params.require(:plan).permit(
