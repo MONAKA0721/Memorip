@@ -97,8 +97,10 @@ function getDestinations(controllerName) {
   let destinations = [];
   for(let i = 0; i < 10; i++){
     let id = controllerName + '_destinations_attributes_' + i + '_name';
-    if(document.getElementById(id).value){
-      destinations.push(document.getElementById(id).value)
+    if(document.getElementById(id)){
+      if(document.getElementById(id).value){
+        destinations.push(document.getElementById(id).value)
+      }
     }
   }
   return destinations;

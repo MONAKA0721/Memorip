@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191124034533) do
+ActiveRecord::Schema.define(version: 20191127022822) do
 
   create_table "anonymous_user_plans", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20191124034533) do
     t.string "placeable_type"
     t.integer "placeable_id"
     t.string "picture"
+    t.text "description"
     t.index ["placeable_type", "placeable_id"], name: "index_destinations_on_placeable_type_and_placeable_id"
     t.index ["plan_id"], name: "index_destinations_on_plan_id"
   end
