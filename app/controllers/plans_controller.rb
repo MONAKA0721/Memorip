@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :logged_in_user, only: [:create]
+  before_action :logged_in_user, only: [:create, :edit, :update, :new, :clone]
 
   def index
     @plans = Plan.where(published: true).paginate(page: params[:page])
