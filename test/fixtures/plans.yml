@@ -4,6 +4,7 @@ one:
   title: MyString
   created_at: <%= 10.minutes.ago %>
   user: michael
+  published: true
 
 two:
   title: MyString

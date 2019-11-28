@@ -24,11 +24,7 @@
     <a>お気に入り</a>
   </div>
   <div class="link-button" id="clone-button">
-    <% if logged_in? %>
-      <%= link_to "クローン", clone_path(id: @anonymous_user_plan.id, is_anonymous: true) %>
-    <% else %>
-      <%= link_to "クローン", login_path %>
-    <% end %>
+    <%= link_to "クローン", clone_path(id: @anonymous_user_plan.id, is_anonymous: true) %>
   </div>
 </div>
 <div id='plan-detail'>
