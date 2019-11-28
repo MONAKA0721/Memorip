@@ -20,6 +20,8 @@ class PlansController < ApplicationController
   def edit
     @plan = Plan.find(params[:id])
     gon.planData = @plan.destinations.map{|d| d.name}
+    count = 10 - @plan.destinations.count
+    count.times { @plan.destinations.build }
   end
 
   def show
@@ -50,6 +52,9 @@ class PlansController < ApplicationController
       p = Plan.find(params[:id]).amoeba_dup
     end
     @plan = Plan.new(title:p.title, destinations: p.destinations)
+    gon.planData = @plan.destinations.map{|d| d.name}
+    count = 10 - @plan.destinations.count
+    count.times { @plan.destinations.build }
   end
 
   private

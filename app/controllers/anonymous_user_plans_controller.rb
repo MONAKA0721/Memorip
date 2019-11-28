@@ -22,6 +22,8 @@ class AnonymousUserPlansController < ApplicationController
 
   def edit
     @anonymous_user_plan = AnonymousUserPlan.find(params[:id])
+    count = 10 - @anonymous_user_plan.destinations.count
+    count.times { @anonymous_user_plan.destinations.build }
     gon.planData = @anonymous_user_plan.destinations.map{|d| d.name}
   end
 

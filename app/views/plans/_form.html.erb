@@ -66,6 +66,7 @@
     }
   });
   let open = "追加目的地を開く"
+  let close = "この目的地を消去する"
   let plan_ol = new Vue({
     el: "#plan-ol",
     data: {
@@ -73,11 +74,40 @@
       show_li:[true, true, true, false, false, false, false, false, false, false],
       button_message: [open, open, open, open, open, open, open, open, open, open]
     },
+    created: function(){
+      if(gon.planData){
+        let destinations = gon.planData;
+        console.log(destinations.length);
+        if(destinations.length !== 10){
+          count = 10 - destinations.length
+          for(let i = 0; i < count; i++){
+            destinations.push("");
+          }
+        }
+        this.show_li = destinations.map(function(destination){
+          if(destination === ""){
+            return false;
+          }else{
+            return true;
+          }
+        });
+        this.show_button = this.show_li.map(function(is_show){
+          return true;
+        });
+        this.button_message = this.show_li.map(function(is_show){
+          if(is_show){
+            return close;
+          }else{
+            return open;
+          }
+        });
+      }
+    },
     methods: {
       display:function(index){
         if(!plan_ol.show_li[index]){
           Vue.set(plan_ol.show_li, index, true);
-          Vue.set(plan_ol.button_message, index, "この目的地を消去する");
+          Vue.set(plan_ol.button_message, index, close);
         }else{
           Vue.set(plan_ol.show_li, index, false);
           Vue.set(plan_ol.button_message, index, open);
