@@ -40,6 +40,7 @@
     <div id="map" style="height: 550px;">
     </div>
       <span class="picture">
+        <%= f.text_field :prefectures, id: "pref_names", style: "display:none;" %>
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
       </span>
       <div class="publish-buttons">
@@ -47,7 +48,8 @@
         <label><%= f.radio_button :published, false %>非公開にする</label>
       </div>
 
-      <%= f.button yield(:button_text), type: 'button',onClick: 'submit();', style: 'width:100%;', class: "btn btn-primary" %>
+      <%= f.button yield(:button_text), type:"button", onClick: "$('#cityName').click();", style: "width:100%;", class: "btn btn-primary" %>
+      <button type="button" onclick="getPreNames('plan', 'new')" style="display: none;" id="cityName"></button>
     <% end %>
   </div>
 </div>

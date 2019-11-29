@@ -6,7 +6,9 @@
     </div>
     <br>
     <%= link_to anonymous_user_plan.title, anonymous_user_plan %>
-    <div id="plan-location">ここに都市を記述します</div>
+    <div id="plan-location">
+      <%=  anonymous_user_plan.prefectures %>
+    </div>
   </div>
   <div id="planThumb" class="plan-inline-block">
     <%= image_tag anonymous_user_plan.picture.url(:planThumb) if anonymous_user_plan.picture? %>

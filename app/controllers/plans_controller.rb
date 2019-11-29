@@ -50,6 +50,7 @@ class PlansController < ApplicationController
         :picture,
         :user_id,
         :published,
+        :prefectures,
         destinations_attributes: [:id, :time, :name, :_destroy]
       )
     end

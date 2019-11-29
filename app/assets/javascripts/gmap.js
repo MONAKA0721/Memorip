@@ -2,7 +2,8 @@ var map
 var geocoder
 var bounds
 var marker = [];
-
+var prefNames = [];
+var prefName = "";
 function isPlanDataNull(array){
   let count = 0;
   array.forEach(function(value){
@@ -10,6 +11,7 @@ function isPlanDataNull(array){
   });
   if(count === array.length) return true;
 }
+
 
 function initMap(planData){
   geocoder = new google.maps.Geocoder();
@@ -47,6 +49,7 @@ function initMap(planData){
   }
 }
 
+
 function codeAddress(){
   var inputAddress = document.getElementById('address').value;
 
@@ -59,6 +62,7 @@ function codeAddress(){
     document.getElementById('address').value = '';
   });
 }
+
 
 function addMarker(){
 
@@ -93,6 +97,7 @@ function addMarker(){
   document.getElementById('markerAddress').value = '';
 }
 
+
 function getDestinations(controllerName) {
   let destinations = [];
   for(let i = 0; i < 10; i++){
@@ -104,10 +109,46 @@ function getDestinations(controllerName) {
   return destinations;
 }
 
+
 function updateMap(controllerName){
   const destinations = getDestinations(controllerName);
-  initMap(destinations)
+  initMap(destinations);
 }
+
+function getPreNames(controllerName, actionName){
+  const destinations = getDestinations(controllerName);
+  console.log(destinations);
+  geocoder = new google.maps.Geocoder();
+  if(!isPlanDataNull(destinations)){
+    for(let i = 0 ; i < destinations.length ; i++){
+      geocoder.geocode( { 'address': destinations[i] }, function(results, status) {
+        if (status == 'OK'){
+         for (let j = 0; j < results[0].address_components.length; j++) {
+           if(results[0].address_components[j].types[0] === "administrative_area_level_1") {
+             prefName = results[0].address_components[j].long_name;
+             prefNames.push(prefName);
+          }
+         }
+        }
+        console.log(prefNames);
+        var prefarray = prefNames.filter( function( value, index, array ) {
+        //インデックス番号を比較して重複データのみ排除
+          return array.indexOf( value ) === index;
+        });
+        var prefstr = prefarray.join();
+        document.getElementById("pref_names").value = prefstr;
+        document.getElementsByClassName(actionName + "_" + controllerName)[0].setAttribute("name","prefs");
+         if(i === destinations.length - 1){
+           var prsubmit = function(){
+             document.prefs.submit();
+           }
+           setTimeout(prsubmit,1000);
+         }
+      });
+    }
+  }
+}
+
 window.onload = function(){
   initMap(gon.planData);
 };

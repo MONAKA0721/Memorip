@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191120034020) do
+ActiveRecord::Schema.define(version: 20191129152843) do
 
   create_table "anonymous_user_plans", force: :cascade do |t|
     t.string "title"
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefectures"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20191120034020) do
     t.string "picture"
     t.integer "user_id"
     t.boolean "published", default: true
+    t.string "prefectures"
     t.index ["user_id", "created_at"], name: "index_plans_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
