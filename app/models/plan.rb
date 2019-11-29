@@ -1,6 +1,8 @@
 class Plan < ApplicationRecord
   belongs_to :user
   has_many :destinations, as: :placeable, dependent: :destroy, inverse_of: :placeable
+  has_many :likes, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
   accepts_nested_attributes_for :destinations, allow_destroy: true
   # , reject_if: :all_blank
   validates :title, presence: true
@@ -8,6 +10,9 @@ class Plan < ApplicationRecord
   validate  :picture_size
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }
+  amoeba do
+    enable
+  end
 
   private
     def picture_size

@@ -5,12 +5,15 @@
     <% end %>
     <span class="name"><%= destination.name %></span>
     <div class="photo">
-      <img src="https://item-shopping.c.yimg.jp/i/n/kabegamiya-honpo_yknk-f-gray-n-lv1237">
-      </img>
+      <% if destination.picture? %>
+        <%= image_tag destination.picture.url %>
+      <% else %>
+        <%= image_tag('no_image.png') %>
+      <% end %>
     </div>
   </div>
   <p>
-    ここに説明を書きます。詳細情報などつらつらと書いていきます
+    <%= destination.description %>
   </p>
   <hr/>
 </li>

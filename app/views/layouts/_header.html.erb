@@ -3,7 +3,7 @@
     <%= link_to "Memorip", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item"><%= link_to "Home",   root_path , class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "ホーム",   root_path , class: "nav-link" %></li>
         <!-- <li class="nav-item"><%= link_to "Help",   help_path , class: "nav-link" %></li> -->
         <li class="nav-item"><%= link_to "プラン一覧", "/plans", class: "nav-link"%></li>
         <% if logged_in? %>
@@ -12,20 +12,19 @@
           <li class="nav-item"><%= link_to "プラン作成", create_path, class: "nav-link"%></li>
         <% end %>
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link" %></li>
           <li class="dropdown nav-item">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              アカウント <b class="caret"></b>
             </a>
             <div class="dropdown-menu">
               <%= link_to "マイページ", current_user, class: "dropdown-item" %>
-              <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item"%>
+              <%= link_to "プロフィール設定", edit_user_path(current_user), class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
-              <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item"%>
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item"%>
             </div>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path , class: "nav-link" %></li>
+          <li><%= link_to "ログイン", login_path , class: "nav-link" %></li>
         <% end %>
       </ul>
     </nav>

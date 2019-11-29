@@ -26,6 +26,7 @@ gem 'jp_prefecture'
 gem 'gon'
 gem 'rails-i18n'
 gem 'sitemap_generator'
+gem 'amoeba'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

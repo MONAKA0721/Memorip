@@ -10,6 +10,22 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <div class="stats">
+        <!-- <a href="#">
+          お気に入りした投稿
+          <strong id="following" class="stat">
+            <%= @user.following.count %>
+          </strong>
+        </a> -->
+        <a href="<%= liking_user_path(@user) %>">
+          いいねした投稿
+          <strong id="liking">
+            <%= @user.liking.count %>
+          </strong>
+        </a>
+      </div>
+    </section>
   </aside>
   <div class="col-md-8" id="user-posts">
     <%= render 'follow_form' if logged_in? %>

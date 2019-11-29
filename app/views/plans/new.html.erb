@@ -1,63 +1,9 @@
 <%= javascript_include_tag 'gmap.js' %>
-<%= javascript_include_tag 'image_preview.js' %>
 <% provide(:title, 'プラン作成') %>
 <% provide(:button_text, 'プランを作成する') %>
 <% provide(:url, planup_path) %>
+<% provide(:action_name, 'new') %>
 
 <h1>プラン作成</h1>
 
-<div id='mapContainer'>
-  <div id='planList'>
-    <%= form_for(@plan, url: yield(:url) ) do |f| %>
-
-      <%= f.label :タイトル %>
-      <%= f.text_field :title, class: 'form-control' ,value:'新しい旅行' %>
-
-      <label>行程</label>
-      <ol style="text-align: center;">
-        <%= f.fields_for :destinations do |destinations_form| %>
-          <li style="display:inline-flex">
-            <div class="col-4">
-              <%= destinations_form.time_field :time, class: 'form-control' %>
-            </div>
-
-            <div class="col-5">
-              <%= destinations_form.text_field :name, class: 'form-control' %>
-            </div>
-
-            <div class="view_box" style="display:flex;">
-              <%= image_tag '/Fileicon.jpg',class: 'select_file_image',onClick: "$('#file#{destinations_form.index}').click()" %>
-              <%= destinations_form.file_field :picture, style: 'display: none;',id:"file#{destinations_form.index}", class: 'form-control file', accept: 'image/jpeg,image/gif,image/png'%>
-            </div>
-          </li>
-        <% end %>
-      </ol>
-      <div class="center-button">
-        <button type="button" onclick="updateMap('plan')">地図に反映</button>
-      </div>
-  </div>
-  <div id="item">
-    <div id="map" style="height: 550px;">
-    </div>
-      <span class="picture">
-        <%= f.text_field :prefectures, id: "pref_names", style: "display:none;" %>
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-      </span>
-      <div class="publish-buttons">
-        <label><%= f.radio_button :published, true %>公開する</label>
-        <label><%= f.radio_button :published, false %>非公開にする</label>
-      </div>
-
-      <%= f.button yield(:button_text), type:"button", onClick: "$('#cityName').click();", style: "width:100%;", class: "btn btn-primary" %>
-      <button type="button" onclick="getPreNames('plan', 'new')" style="display: none;" id="cityName"></button>
-    <% end %>
-  </div>
-</div>
-  <script type="text/javascript">
-    $('#micropost_picture').bind('change', function() {
-      var size_in_megabytes = this.files[0].size/1024/1024;
-      if (size_in_megabytes > 5) {
-        alert('Maximum file size is 5MB. Please choose a smaller file.');
-      }
-    });
-  </script>
+<%= render 'form' %>

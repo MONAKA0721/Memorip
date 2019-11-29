@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/search', to: 'users#search'
   get '/planup', to: 'plans#new'
   post '/planup', to: 'plans#create'
+  get '/clone', to: 'plans#clone'
+  post '/clone', to: 'plans#create'
   get '/anonymous_user_planup', to: 'anonymous_user_plans#new'
   post '/anonymous_user_planup', to: 'anonymous_user_plans#create'
   resources :users do
@@ -34,4 +36,15 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :plans, only: [:index, :update, :show, :edit, :new, :create]
   resources :anonymous_user_plans
+  resources :users do
+    member do
+      get :liking
+    end
+  end
+  resources :plans do
+    member do
+      get :likers
+    end
+  end
+  resources :likes, only: [:create, :destroy]
 end

@@ -1,6 +1,13 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul{
+  list-style: none;
+  padding-left: 0px;
+}
+img{
+  vertical-align: baseline;
+}
 #user-posts{
   margin-top: 10px;
 }
@@ -27,4 +34,13 @@
 }
 .plan-inline-block{
   display: inline-block;
+}
+.plan-index-title{
+  color: var(--theme-green);
+  font-size:20px;
+}
+@media screen and (max-width:414px){
+  h1{
+    font-size: 24px;
+  }
 }

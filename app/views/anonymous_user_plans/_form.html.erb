@@ -1,36 +1,61 @@
 <%= javascript_include_tag 'image_preview.js' %>
-<%= form_for(@anonymous_user_plan, url: yield(:url) ) do |f| %>
+<div id='mapContainer'>
+  <div id='planList'>
+    <%= form_for(@anonymous_user_plan, url: yield(:url) ) do |f| %>
 
-  <%= f.label :タイトル %>
-  <%= f.text_field :title, class: 'form-control' %>
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, class: 'form-control' %>
 
-  <label>行程</label>
-  <ol style="text-align: center;">
-    <%= f.fields_for :destinations do |destinations_form| %>
-      <li style="display:inline-flex">
-        <div class="col-4">
-          <%= destinations_form.time_field :time, class: 'form-control' %>
-        </div>
+      <label>行程</label>
+      <ol id="plan-ol" style="text-align: center;">
+        <%= f.fields_for :destinations do |destinations_form| %>
+          <button type="button" v-if="show_button[<%= destinations_form.index %>]" @click="display(<%= destinations_form.index %>)">{{button_message[<%= destinations_form.index %>]}}</button>
+          <br v-if="show_button[<%= destinations_form.index %>]"/>
+          <li class="plan-li" id="plan-li-<%= destinations_form.index %>" v-if="show_li[<%= destinations_form.index %>]">
+            <div class='row'>
+              <div class="col-4">
+                <%= destinations_form.time_field :time, class: 'form-control' %>
+              </div>
 
-        <div class="col-5">
-          <%= destinations_form.text_field :name, class: 'form-control' %>
-        </div>
+              <div class="col-5">
+                <%= destinations_form.text_field :name, class: 'form-control' %>
+              </div>
 
-        <div class="view_box" style="display:flex;">
-          <%= image_tag '/Fileicon.jpg',class: 'select_file_image',onClick: "$('#file#{destinations_form.index}').click()" %>
-          <%= destinations_form.file_field :picture, style: 'display: none;',id:"file#{destinations_form.index}", class: 'form-control file', accept: 'image/jpeg,image/gif,image/png'%>
-        </div>
-
-      </li>
-    <% end %>
-  </ol>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
-
-  <%= f.button yield(:button_text), type: 'button',onClick: 'getPreNames("anonymous_user_plan"); submit();', style: 'width:100%;', class: "btn btn-primary" %>
+              <div class="view_box" style="display:flex;">
+                <%= image_tag '/Fileicon.jpg',class: 'select_file_image',onClick: "$('#file#{destinations_form.index}').click()" %>
+                <%= destinations_form.file_field :picture, style: 'display: none;',id:"file#{destinations_form.index}", class: 'form-control file', accept: 'image/jpeg,image/gif,image/png'%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <%= destinations_form.text_area :description, placeholder: "詳細を入力できます" %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+      <div class="center-button">
+        <button type="button" onclick="updateMap('plan')">地図に反映</button>
+      </div>
+  </div>
+  <div id="item">
+    <input id="address" type="textbox" placeholder="都道府県を入力してください">
+    <input type="button" value="移動" onclick="codeAddress()">
+    <div id="map" style="height: 550px;">
+    </div>
+    <span class="picture">
+      <%= f.text_field :prefectures, id: "pref_names", style: "display:none;" %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <input id="markerAddress" type="textbox" >
+    <input type="button" value="追加" onclick="addMarker()">
+  </div>
+  <%= f.button yield(:button_text),type:"button" ,onClick: "$('#cityName').click();" ,style: "width:100%;", class: "btn btn-primary" %>
+  <button type="button" onclick="getPreNames('anonymous_user_plan', '<%= yield(:action_name)%>')" style="display: none;" id="cityName"></button>
 <% end %>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
@@ -38,4 +63,24 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+  let open = "追加目的地を開く"
+  let plan_ol = new Vue({
+    el: "#plan-ol",
+    data: {
+      show_button:[false, false, false, true, true, true, true, true, true, true],
+      show_li:[true, true, true, false, false, false, false, false, false, false],
+      button_message: [open, open, open, open, open, open, open, open, open, open]
+    },
+    methods: {
+      display:function(index){
+        if(!plan_ol.show_li[index]){
+          Vue.set(plan_ol.show_li, index, true);
+          Vue.set(plan_ol.button_message, index, "この目的地を消去する");
+        }else{
+          Vue.set(plan_ol.show_li, index, false);
+          Vue.set(plan_ol.button_message, index, open);
+        }
+      }
+    }
+  })
 </script>

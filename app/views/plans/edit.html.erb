@@ -1,26 +1,12 @@
 <%= javascript_include_tag 'gmap.js' %>
+<% provide(:title, 'プラン編集') %>
 <% provide(:button_text, 'プランを更新する') %>
 <% provide(:url, plan_path) %>
+<% provide(:action_name, 'edit') %>
+
 <h2>地図しおり</h2>
 
-<div id='mapContainer'>
-  <div id='planList'>
-    <%= render 'form' %>
-  </div>
-
-  <div id='item'>
-    <div id='center'>
-      <input id="address" type="textbox" placeholder="都道府県を入力してください">
-      <input type="button" value="移動" onclick="codeAddress()">
-
-      <div id='map'>
-      </div>
-
-      <input id="markerAddress" type="textbox" >
-      <input type="button" value="追加" onclick="addMarker()">
-    </div>
-  </div>
-</div>
+<%= render 'form' %>
 
 <div id="planLink">
   <%= link_to "出来上がったプランを見る", @plan %>

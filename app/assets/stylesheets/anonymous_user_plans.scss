@@ -24,6 +24,14 @@ img{
   h3{
     font-size: 18px;
   }
+  div{
+    img{
+    width: 230px;
+    height: 230px;
+    display: block;
+    margin: 0 auto;
+    }
+  }
 }
 .plan-user{
   text-align:right;

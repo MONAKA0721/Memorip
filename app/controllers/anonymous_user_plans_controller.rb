@@ -1,7 +1,7 @@
 class AnonymousUserPlansController < ApplicationController
   def show
     @anonymous_user_plan = AnonymousUserPlan.find(params[:id])
-    @destinations = @anonymous_user_plan.destinations
+    @destinations = @anonymous_user_plan.destinations.order(id:"ASC")
     gon.planData = @destinations.map{|d| d.name}
   end
 
@@ -22,6 +22,8 @@ class AnonymousUserPlansController < ApplicationController
 
   def edit
     @anonymous_user_plan = AnonymousUserPlan.find(params[:id])
+    count = 10 - @anonymous_user_plan.destinations.count
+    count.times { @anonymous_user_plan.destinations.build }
     gon.planData = @anonymous_user_plan.destinations.map{|d| d.name}
   end
 
@@ -42,7 +44,7 @@ class AnonymousUserPlansController < ApplicationController
         :title,
         :picture,
         :prefectures,
-        destinations_attributes: [:id, :time, :name, :_destroy, :picture]
+        destinations_attributes: [:id, :time, :name, :_destroy, :picture, :description]
       )
     end
 end

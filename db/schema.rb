@@ -29,8 +29,19 @@ ActiveRecord::Schema.define(version: 20191129152843) do
     t.string "placeable_type"
     t.integer "placeable_id"
     t.string "picture"
+    t.text "description"
     t.index ["placeable_type", "placeable_id"], name: "index_destinations_on_placeable_type_and_placeable_id"
     t.index ["plan_id"], name: "index_destinations_on_plan_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "plan_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id", "user_id"], name: "index_likes_on_plan_id_and_user_id", unique: true
+    t.index ["plan_id"], name: "index_likes_on_plan_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "microposts", force: :cascade do |t|
