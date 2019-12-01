@@ -48,6 +48,10 @@ class PlansController < ApplicationController
   def clone
     if params[:is_anonymous]
       p = AnonymousUserPlan.find(params[:id]).amoeba_dup
+      @plan = Plan.new(title:p.title, destinations: p.destinations)
+      gon.planData = @plan.destinations.map{|d| d.name}
+      count = 10 - @plan.destinations.count
+      count.times { @plan.destinations.build }
     else
       @old_plan = Plan.find(params[:id])
       if current_user?(@old_plan.user)
@@ -55,12 +59,12 @@ class PlansController < ApplicationController
         flash.discard(:id)
       else
         p = Plan.find(params[:id]).amoeba_dup
+        @plan = Plan.new(title:p.title, destinations: p.destinations)
+        gon.planData = @plan.destinations.map{|d| d.name}
+        count = 10 - @plan.destinations.count
+        count.times { @plan.destinations.build }
       end
     end
-    @plan = Plan.new(title:p.title, destinations: p.destinations)
-    gon.planData = @plan.destinations.map{|d| d.name}
-    count = 10 - @plan.destinations.count
-    count.times { @plan.destinations.build }
   end
 
   private
