@@ -119,7 +119,6 @@ function updateMap(controllerName){
 
 function getPreNames(controllerName, actionName){
   const destinations = getDestinations(controllerName);
-  console.log(destinations);
   geocoder = new google.maps.Geocoder();
   if(!isPlanDataNull(destinations)){
     for(let i = 0 ; i < destinations.length ; i++){
@@ -134,7 +133,7 @@ function getPreNames(controllerName, actionName){
         }
         console.log(prefNames);
         var prefarray = prefNames.filter( function( value, index, array ) {
-        //インデックス番号を比較して重複データのみ排除
+          //インデックス番号を比較して重複データのみ排除
           return array.indexOf( value ) === index;
         });
         var prefstr = prefarray.join();
@@ -144,10 +143,14 @@ function getPreNames(controllerName, actionName){
            var prsubmit = function(){
              document.prefs.submit();
            }
-           setTimeout(prsubmit,1000);
+           setTimeout(prsubmit,100);
          }
       });
     }
+  }else{
+    document.getElementById("pref_names").value = '';
+    document.getElementsByClassName(actionName + "_" + controllerName)[0].setAttribute("name","prefs");
+    document.prefs.submit();
   }
 }
 

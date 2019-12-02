@@ -2,8 +2,20 @@ class PlansController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :new, :clone]
 
   def index
-    @plans = Plan.where(published: true).paginate(page: params[:page])
-    @anonymousUserPlans = AnonymousUserPlan.all
+    if params[:q]
+      @q = Plan.ransack(params[:q])
+      params[:p] = params[:q].deep_dup
+      params[:p].delete(:user_name_or_title_or_destinations_description_or_destinations_name_or_prefectures_cont)
+      params[:p][:title_or_destinations_description_or_destinations_name_or_prefectures_cont] = \
+        params[:q][:user_name_or_title_or_destinations_description_or_destinations_name_or_prefectures_cont]
+      @plans = @q.result(distinct: true).paginate(page: params[:page])
+      @anonymous_q = AnonymousUserPlan.ransack(params[:p])
+      @anonymousUserPlans = @anonymous_q.result(distinct: true)
+    else
+      @q = Plan.ransack(params[:q])
+      @plans = Plan.where(published: true).paginate(page: params[:page])
+      @anonymousUserPlans = AnonymousUserPlan.all
+    end
   end
 
   def update
@@ -77,5 +89,9 @@ class PlansController < ApplicationController
         :prefectures,
         destinations_attributes: [:id, :time, :name, :_destroy, :picture, :description]
       )
+    end
+
+    def search_params
+      params.require(:q).permit(:title_or_destinations_description_or_destinations_name_cont)
     end
 end
