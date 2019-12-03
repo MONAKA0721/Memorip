@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'inquiry' => 'inquiry#index'              # 入力画面
+  post 'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post 'inquiry/thanks' => 'inquiry#thanks'     # 送信完了画面
+
   get 'sitemap', to: redirect('http://s3-ap-northeast-1.amazonaws.com/'+ENV['S3_BUCKET']+'/sitemaps/sitemap.xml.gz')
 
   get 'plans/update'
@@ -11,7 +15,6 @@ Rails.application.routes.draw do
 
   get  '/help', to: 'static_pages#help'
   get  '/about', to: 'static_pages#about'
-  get  '/contact', to: 'static_pages#contact'
   get  '/rule', to: 'static_pages#rule'
   get  '/privacy', to: 'static_pages#privacy'
   get  '/create', to: 'static_pages#create'

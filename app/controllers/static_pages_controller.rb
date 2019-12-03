@@ -15,12 +15,9 @@ class StaticPagesController < ApplicationController
   def create
   end
 
-  def contact
-  end
-
   def rule
   end
 
   def privacy
-  end 
+  end
 end
