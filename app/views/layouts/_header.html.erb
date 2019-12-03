@@ -1,22 +1,28 @@
-<header class="navbar navbar-fixed-top navbar-inverse navbar-expand-lg  navbar-light" id="header_layout">
-  <div class="container">
-    <%= link_to "Memorip", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item"><%= link_to "ホーム",   root_path , class: "nav-link" %></li>
+<header class="drawer-navbar" role="banner" id="header_layout">
+  <div class="drawer-container">
+    <div class="drawer-navbar-header">
+      <%= link_to "Memorip", root_path, id: "logo", class:"drawer-brand" %>
+      <button type="button" class="drawer-toggle drawer-hamburger">
+        <span class="sr-only">toggle navigation</span>
+        <span class="drawer-hamburger-icon"></span>
+      </button>
+    </div>
+    <nav class="drawer-nav" role="navigation">
+      <ul class="drawer-menu drawer-menu--right">
+        <li class="nav-item drawer-menu-item"><%= link_to "ホーム",   root_path , class: "nav-link" %></li>
         <!-- <li class="nav-item"><%= link_to "Help",   help_path , class: "nav-link" %></li> -->
-        <li class="nav-item"><%= link_to "プラン一覧", "/plans", class: "nav-link"%></li>
+        <li class="nav-item drawer-menu-item"><%= link_to "プラン一覧", "/plans", class: "nav-link"%></li>
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to "プラン作成", planup_path, class: "nav-link"%></li>
+          <li class="nav-item drawer-menu-item"><%= link_to "プラン作成", planup_path, class: "nav-link"%></li>
         <% else %>
-          <li class="nav-item"><%= link_to "プラン作成", create_path, class: "nav-link"%></li>
+          <li class="nav-item drawer-menu-item"><%= link_to "プラン作成", create_path, class: "nav-link"%></li>
         <% end %>
         <% if logged_in? %>
-          <li class="dropdown nav-item">
+          <li class="dropdown nav-item drawer-menu-item">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               アカウント <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu dropdown-menu-left">
               <%= link_to "マイページ", current_user, class: "dropdown-item" %>
               <%= link_to "プロフィール設定", edit_user_path(current_user), class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
@@ -24,9 +30,15 @@
             </div>
           </li>
         <% else %>
-          <li><%= link_to "ログイン", login_path , class: "nav-link" %></li>
+          <li class="drawer-menu-item"><%= link_to "ログイン", login_path , class: "nav-link" %></li>
         <% end %>
       </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  $(document).ready(function() {
+    $('.drawer').drawer();
+  });
+</script>

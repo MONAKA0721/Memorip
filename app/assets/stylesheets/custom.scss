@@ -66,19 +66,28 @@ p {
 }
 
 /* header */
+header a {
+  color: rgba(0,0,0,0.5);
+}
+
+header a:hover {
+  color: rgba(0,0,0,0.7);
+  text-decoration: none;
+}
 
 #logo {
   margin-right: 10px;
-  font-size: 2.0em;
+  font-size: 2.3em;
   color: black;
+  font-weight: 500;
   letter-spacing: -1px;
   padding-top: 9px;
   font-family: 'Tahoma';
   float: left;
   background-image: url("jet_hoso.png");
-  background-size: 50px 50px;
+  background-size: 53px 53px;
   background-repeat: no-repeat;
-  padding: 3px 0px 0px 55px;
+  padding: 0px 0px 0px 55px;
 }
 
 #logo:hover {
@@ -102,6 +111,7 @@ footer a {
 
 footer a:hover {
   color: #222;
+  text-decoration: none;
 }
 
 footer small {
