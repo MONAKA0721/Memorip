@@ -6,6 +6,11 @@
       <%= f.label :タイトル %>
       <%= f.text_field :title, class: 'form-control' %>
 
+      <div id="thumb_design">
+        <p style="padding-top:15px; padding-right:20px; font-size:16px;">サムネイル画像を選択して下さい</p>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: "thumbnail", style: "display:none;" %>
+        <img src="/thumbimg.png" id="img1" style="width:60px;height:60px; padding-top:10px;" onclick="$('#thumbnail').click();" />
+      </div>
       <label>行程</label>
       <ol id="plan-ol" style="text-align: center;">
         <%= f.fields_for :destinations do |destinations_form| %>
@@ -41,11 +46,10 @@
   <div id="item">
     <input id="address" type="textbox" placeholder="都道府県を入力してください">
     <input type="button" value="移動" onclick="codeAddress()">
-    <div id="map" style="height: 550px;">
+    <div id="map" style="height: 650px;">
     </div>
     <span class="picture">
       <%= f.text_field :prefectures, id: "pref_names", style: "display:none;" %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </span>
     <div class="publish-buttons">
       <label><%= f.radio_button :published, true %>公開する</label>
@@ -55,7 +59,7 @@
     <input type="button" value="追加" onclick="addMarker()">
   </div>
   <%= f.button yield(:button_text),type:"button" ,onClick: "$('#cityName').click();" ,style: "width:100%;", class: "btn btn-primary" %>
-  <button type="button" onclick="getPreNames('plan' , <%= yield(:action_name)%>)" style="display: none;" id="cityName"></button>
+  <button type="button" onclick="getPreNames('plan' , '<%= yield(:action_name)%>')" style="display: none;" id="cityName"></button>
     <% end %>
 </div>
 
