@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get  '/help', to: 'static_pages#help'
   get  '/about', to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
+  get  '/rule', to: 'static_pages#rule'
+  get  '/privacy', to: 'static_pages#privacy'
   get  '/create', to: 'static_pages#create'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
