@@ -2,20 +2,20 @@
 <%= javascript_include_tag 'jquery.bgswitcher.js' %>
 <div id="bg-slider" style="margin-top: -40px; margin-bottom: -40px;">
 <h1 id="Sitetitle">Memorip</h1>
-<h3 class='center' id='description'>このサイトでは旅行記録の共有、旅行の企画が簡単にできます！</h3>
+<h3 class='center' id='description'>このサイトでは旅行プランの作成と共有が簡単にできます！</h3>
 <div class='container'>
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="row">
           <div class="col-12">
-          <h4 id="planDescript_title">直感的に旅行を企画！</h4>
-          <p id="planDescript">Memoripでは地図を使って視覚的にわかりやすく旅行が企画出来ます。また、旅行を企画していくとその情報を元に旅のしおりが作成されます。しおりのデータは保存して共有できるので旅中に役に立つ事間違いなしです！</p>
+          <h4 id="planDescript_title">直感的にプランを作成！</h4>
+          <p id="planDescript">Memoripではアカウントの有無に関わらず旅行の行き先などを入力することで旅行プランを簡単に作成できます。また、行き先がマップに表示されるので目的地間の距離や位置関係がわかり非常に便利です！</p>
           </div>
           <div class="col-12">
             <div class="card center-block linkBox planningBox mx-auto">
               <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
               <div class="card-body">
-                <h4 class="card-title text-center">旅行プランを立てる</h4>
+                <h4 class="card-title text-center">旅行プランを作成する</h4>
                 <a href="/create" class="center-block"></a>
               </div>
             </div>
@@ -25,8 +25,8 @@
       <div class="col-xs-12 col-md-6">
         <div class="row">
           <div class="col-12">
-          <h4 id="tweetDescript_title">簡単に旅行記を共有！</h4>
-          <p id="tweetDescript">Memoripのアカウントを登録すると自分が企画した旅行プランを投稿する事が出来ます。また、他の人の投稿も見れるので自分の旅行の行き先の目星をつけたり内容を参考にしたり出来ます！</p>
+          <h4 id="tweetDescript_title">簡単にプランを共有！</h4>
+          <p id="tweetDescript">Memoripではアカウントの有無に関わらず作成した旅行プランをSNSのように投稿する事が出来ます。アカウントを作成すれば他のアカウントをフォローすることも出来るので共有しやすくなります！</p>
           </div>
           <div class="col-12">
             <div class="card center-block linkBox postBox mx-auto">
@@ -43,6 +43,7 @@
 </div>
 <%= link_to "アカウントを作る", signup_path, class: "btn btn-dark mx-auto signUpButton" %>
 <div class="space">
+  <p style="color:white; text-align:center; padding-top:50px;">Memoripの機能についての詳しい説明は<%= link_to "こちら", about_path, id:'desc_memorip'  %></p>
 </div>
 
 </div>
