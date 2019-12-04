@@ -2,6 +2,13 @@
 
 <% provide(:title, 'All plans') %>
 <h1>旅メモ</h1>
+<%= search_form_for @q, url: plans_path do |f| %>
+  <dl>
+    <dt><%= f.label :user_name_or_title_or_destinations_description_or_destinations_name_cont, "キーワード" %></dt>
+    <dd><%= f.search_field :user_name_or_title_or_destinations_description_or_destinations_name_or_prefectures_cont %></dd>
+  </dl>
+  <%= f.submit class: 'search-q-btn' %>
+<% end %>
 <div id="trip-memos">
   <ul class="tabs">
     <li @click="changeMemos(1)">登録済みユーザー</li>

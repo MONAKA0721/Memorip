@@ -6,12 +6,7 @@
       <%= render 'like' %>
     <% end %>
   <% else %>
-    <%= link_to login_path do %>
-      <div id="like-icon">
-        <i class="far fa-heart fa-2x"></i><br/>
-        いいね
-      </div>
-    <% end %>
+    <%= render 'before_login_like'%>
   <% end %>
 </div>
 

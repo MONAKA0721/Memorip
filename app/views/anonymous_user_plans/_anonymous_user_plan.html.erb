@@ -11,7 +11,11 @@
     </div>
   </div>
   <div id="planThumb" class="plan-inline-block">
-    <%= image_tag anonymous_user_plan.picture.url(:planThumb) if anonymous_user_plan.picture? %>
+    <% if anonymous_user_plan.picture? %>
+      <%= image_tag anonymous_user_plan.picture.url(:planThumb) %>
+    <% else %>
+      <%= image_tag('no_image.png') %>
+    <% end %>
   </div>
   <hr/>
 </li>
