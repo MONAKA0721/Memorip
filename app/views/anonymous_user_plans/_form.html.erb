@@ -35,7 +35,7 @@
         <% end %>
       </ol>
       <div class="center-button">
-        <button type="button" onclick="updateMap('plan')">地図に反映</button>
+        <button type="button" onclick="updateMap('anonymous_user_plan')">地図に反映</button>
       </div>
   </div>
   <div id="item">
@@ -50,10 +50,10 @@
     <input id="markerAddress" type="textbox" >
     <input type="button" value="追加" onclick="addMarker()">
   </div>
-  <%= f.button yield(:button_text),type:"button" ,onClick: "$('#cityName').click();" ,style: "width:100%;", class: "btn btn-primary" %>
-  <button type="button" onclick="getPreNames('anonymous_user_plan', '<%= yield(:action_name)%>')" style="display: none;" id="cityName"></button>
-<% end %>
 </div>
+<%= f.button yield(:button_text),type:"button" ,onClick: "$('#cityName').click();" ,style: "width:100%;", class: "btn btn-primary" %>
+<button type="button" onclick="getPreNames('anonymous_user_plan', '<%= yield(:action_name)%>')" style="display: none;" id="cityName"></button>
+<% end %>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
