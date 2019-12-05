@@ -1,4 +1,4 @@
-$(function(){
+$(function (){
   for ( let i = 0; i<10; i++ ) {
     $(`#file${i}`).on('change', function(){
        var fileprop = $(this).prop('files')[0],

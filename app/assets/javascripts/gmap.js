@@ -143,7 +143,7 @@ function getPreNames(controllerName, actionName){
            var prsubmit = function(){
              document.prefs.submit();
            }
-           setTimeout(prsubmit,100);
+           setTimeout(prsubmit,500);
          }
       });
     }
@@ -152,6 +152,10 @@ function getPreNames(controllerName, actionName){
     document.getElementsByClassName(actionName + "_" + controllerName)[0].setAttribute("name","prefs");
     document.prefs.submit();
   }
+}
+
+function reload(){
+  $.getScript("/assets/image_preview.self.js");
 }
 
 window.onload = function(){

@@ -14,7 +14,7 @@
       <label>行程</label>
       <ol id="plan-ol" style="text-align: center;">
         <%= f.fields_for :destinations do |destinations_form| %>
-          <button type="button" v-if="show_button[<%= destinations_form.index %>]" @click="display(<%= destinations_form.index %>)">{{button_message[<%= destinations_form.index %>]}}</button>
+          <button type="button" onclick="reload()" v-if="show_button[<%= destinations_form.index %>]" @click="display(<%= destinations_form.index %>)">{{button_message[<%= destinations_form.index %>]}}</button>
           <br v-if="show_button[<%= destinations_form.index %>]"/>
           <li class="plan-li" id="plan-li-<%= destinations_form.index %>" v-if="show_li[<%= destinations_form.index %>]">
             <div class='row'>
