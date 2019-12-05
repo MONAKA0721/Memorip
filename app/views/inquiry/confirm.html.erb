@@ -9,7 +9,7 @@
       <div class="col-sm-8"><%= f.hidden_field :name %><%= @inquiry.name %></div>
       <div class="col-sm-4">メールアドレス</div>
       <div class="col-sm-8"><%= f.hidden_field :email %><%= @inquiry.email %></div>
-      <div class="col-sm-4">お問い合わせ内容</div>
+      <div class="col-sm-4">お問い合わせ・ご意見・ご要望の内容</div>
       <div class="col-sm-8"><%= f.hidden_field :message %><%= simple_format(@inquiry.message) %></div>
     </div>
       <%= f.submit '送信する', class: 'btn btn-block btn-success' %>

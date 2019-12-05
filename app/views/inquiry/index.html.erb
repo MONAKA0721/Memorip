@@ -1,7 +1,7 @@
 <% @page_title = 'お問い合わせ' %>
 <div class="newWrap">
   <div class="newTitle">
-    <h1>お問い合わせ</h1>
+    <h1>お問い合わせ・ご意見・ご要望</h1>
   </div>
   <div class="newContent">
     <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
@@ -20,7 +20,7 @@
         <div class="col-sm-8"><%= f.text_field :name, class: 'form-control mb-2' %></div>
         <div class="col-sm-4">メールアドレス<span class="text-danger">（必須）</span></div>
         <div class="col-sm-8"><%= f.text_field :email, class: 'form-control mb-2' %></div>
-        <div class="col-sm-4">お問い合わせ内容</div>
+        <div class="col-sm-4">お問い合わせ・ご意見・ご要望の内容</div>
         <div class="col-sm-8"><%= f.text_area :message, class: 'form-control mb-2', rows: '6' %></div>
       </div>
       <%= f.submit '確認', class: 'btn btn-block btn-success' %>
