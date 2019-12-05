@@ -28,6 +28,7 @@ gem 'rails-i18n'
 gem 'sitemap_generator'
 gem 'amoeba'
 gem 'ransack'
+gem 'mail-iso-2022-jp'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
