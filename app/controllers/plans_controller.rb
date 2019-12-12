@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :logged_in_user, only: [:create, :edit, :update, :new, :clone]
+  before_action :logged_in_user, only: [:create, :edit, :update, :new, :clone, :destroy]
 
   def index
     if params[:q]
@@ -76,6 +76,16 @@ class PlansController < ApplicationController
         count = 10 - @plan.destinations.count
         count.times { @plan.destinations.build }
       end
+    end
+  end
+
+  def destroy
+    @plan = Plan.find(params[:id])
+    @user = @plan.user
+    if current_user?(@user)
+      @plan.destroy
+      flash[:success] = "プランを削除しました"
+      redirect_to @user
     end
   end
 
