@@ -16,6 +16,9 @@
     <% else %>
       <%= image_tag('no_image.png') %>
     <% end %>
+    <% if controller.controller_name == 'users' && current_user?(plan.user) %>
+      <%= link_to "削除", plan, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
   </div>
   <hr/>
 </li>
