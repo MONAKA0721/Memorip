@@ -12,7 +12,7 @@
     "react-dom": "^16.8.6",
     "react_ujs": "^2.5.0",
     "serialize-javascript": "^2.1.2",
-    "set-value": "^3.0.1"
+    "set-value": "^4.0.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.4.1"
